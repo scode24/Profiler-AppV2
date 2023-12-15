@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#profile{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+
+#profile div{
+    display: flex;
+    flex-wrap: wrap;
+    width: 60%;
+}
+
+.box-content{
+    display: contents !important;
+    font-size: 12px;
+    width: 100% !important;
+}
+
+@media (max-width: 767.98px){
+    #profile{
+        display: block;
+        height: 90vh;
+    }
+}

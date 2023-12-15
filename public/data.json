@@ -1,0 +1,67 @@
+{
+  "boxes": {
+    "namespace": {
+      "fullName": "Soumyabrata Sarkar",
+      "subTitle": "Full Stack Developer",
+      "fontColor": "white",
+      "bgColor": "#8B78E6",
+      "content": {
+        "socialLinks": [
+          {
+            "title": "GitHub",
+            "link": "test/link"
+          },
+          {
+            "title": "LinkedIn",
+            "link": "test/link1"
+          },
+          {
+            "title": "Mail",
+            "link": "test/link1"
+          }
+        ],
+        "contacts": {
+          "phno": "+91-9535592494",
+          "address": "Bangalore, India"
+        }
+      }
+    },
+    "about": {
+      "title": "About Me",
+      "fontColor": "black",
+      "bgColor": "orange",
+      "content": "This is main about content"
+    },
+    "skill": {
+      "title": "Skills",
+      "fontColor": "white",
+      "bgColor": "black",
+      "content": [
+        {
+          "name": "Java/J2EE",
+          "rating": 4
+        },
+        {
+          "name": "Microservices",
+          "rating": 4
+        },
+        {
+          "name": "CI/CD",
+          "rating": 3
+        },
+        {
+          "name": "AWS",
+          "rating": 3
+        },
+        {
+          "name": "Javascript ES6",
+          "rating": 4
+        },
+        {
+          "name": "ReactJS",
+          "rating": 4
+        }
+      ]
+    }
+  }
+}
