@@ -2,6 +2,7 @@ import { motion, useAnimationControls } from "framer-motion";
 import React, { useState } from "react";
 import About from "../box-contents/About";
 import NameSpace from "../box-contents/NameSpace";
+import Skill from "../box-contents/Skill";
 
 function Box(props) {
   const {
@@ -39,6 +40,8 @@ function Box(props) {
         return <NameSpace />;
       case "about":
         return <About />;
+      case "skill":
+        return <Skill />;
 
       default:
         break;

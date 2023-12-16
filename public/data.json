@@ -30,36 +30,57 @@
       "title": "About Me",
       "fontColor": "black",
       "bgColor": "orange",
-      "content": "This is main about content"
+      "content": "With a robust background spanning 9.5 years in software development, I have honed my expertise in Java backend development, specializing in microservices architecture and cloud technologies. Over the past 2+ years, I have expanded my skill set to encompass full-stack development, demonstrating proficiency in Angular, React, Java, and the MERN (MongoDB, Express.js, React, Node.js) stack. My keen interest extends to the realms of artificial intelligence and machine learning, reflecting a commitment to staying at the forefront of emerging technologies. This multifaceted experience positions me as a versatile and forward-thinking professional in the dynamic field of software development."
     },
     "skill": {
       "title": "Skills",
       "fontColor": "white",
-      "bgColor": "black",
+      "bgColor": "#3C40C6",
       "content": [
         {
-          "name": "Java/J2EE",
-          "rating": 4
+          "name": "Java / J2EE",
+          "rating": 4,
+          "note": ""
+        },
+        {
+          "name": "Spring Framework",
+          "rating": 4,
+          "note": ""
         },
         {
           "name": "Microservices",
-          "rating": 4
+          "rating": 4,
+          "note": ""
         },
         {
           "name": "CI/CD",
-          "rating": 3
+          "rating": 3,
+          "note": ""
         },
         {
           "name": "AWS",
-          "rating": 3
+          "rating": 3,
+          "note": ""
         },
         {
-          "name": "Javascript ES6",
-          "rating": 4
+          "name": "JS",
+          "rating": 4,
+          "note": ""
         },
         {
           "name": "ReactJS",
-          "rating": 4
+          "rating": 4,
+          "note": ""
+        },
+        {
+          "name": "Angular",
+          "rating": 4,
+          "note": ""
+        },
+        {
+          "name": "MERN Stack",
+          "rating": 4,
+          "note": ""
         }
       ]
     }

@@ -52,7 +52,14 @@ function NameSpace() {
 
   return (
     <div className="box-content">
-      <div style={{ display: "flex", flexDirection: "row", width: "inherit" }}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          width: "inherit",
+          marginTop: "20px",
+        }}
+      >
         {socialLinks.map((link, index) => (
           <div style={{ width: "fit-content" }} key={index}>
             {renderLink(link)}
@@ -64,6 +71,7 @@ function NameSpace() {
           display: "flex",
           flexDirection: "column",
           width: "inherit",
+          marginTop: "20px",
         }}
       >
         <span>
