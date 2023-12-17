@@ -1,7 +1,7 @@
 import React from "react";
 import profileStore from "../data-store/ProfileStore";
 
-function About() {
+function About(props) {
   const { profileJson } = profileStore();
   const aboutContent = profileJson.boxes.about.content;
   return (

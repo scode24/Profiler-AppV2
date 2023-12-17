@@ -5,20 +5,7 @@ import NameSpace from "../box-contents/NameSpace";
 import Skill from "../box-contents/Skill";
 
 function Box(props) {
-  const {
-    tag,
-    title,
-    icon,
-    color,
-    img,
-    fontColor,
-    initialWidth,
-    initialHeight,
-    finalWidth,
-    finalHeight,
-  } = props.config;
-  const initialStyle = { width: initialWidth, height: initialHeight };
-  const finalStyle = { width: finalWidth, height: finalHeight };
+  const { tag, title, icon, img, config } = props.config;
   const closedBoxIconInitialStyle = { opacity: 0, marginTop: "20px" };
   const closedBoxIconFinalStyle = { opacity: 1, marginTop: "0" };
   const animator = useAnimationControls();
@@ -26,10 +13,10 @@ function Box(props) {
 
   const openCloseBox = () => {
     if (isBoxOpened) {
-      animator.start(initialStyle);
+      animator.start(config?.framerAnimation?.onclickAnimation?.initialState);
       setIsBoxOpened(false);
     } else {
-      animator.start(finalStyle);
+      animator.start(config?.framerAnimation?.onclickAnimation?.finalState);
       setIsBoxOpened(true);
     }
   };
@@ -51,14 +38,16 @@ function Box(props) {
   return (
     <motion.div
       style={{
-        background: color,
+        background: config?.style?.bgColor,
         cursor: "pointer",
-        color: fontColor,
-        padding: img !== "" ? "0px" : "20px",
+        color: config?.style?.fontColor,
+        padding: img !== undefined ? "0px" : "20px",
         margin: "5px",
-        overflow: "auto",
+        overflowY: "auto",
+        width: config?.framerAnimation?.onclickAnimation?.initialState?.width,
+        height: config?.framerAnimation?.onclickAnimation?.initialState?.height,
       }}
-      initial={initialStyle}
+      initial={config?.framerAnimation?.onclickAnimation?.initialState}
       animate={animator}
       onClick={openCloseBox}
       transition={{ type: "spring" }}
@@ -68,14 +57,14 @@ function Box(props) {
           style={{
             display: "flex",
             flexDirection: "column",
-            width: "inherit",
+            width: "100%",
             height: "100%",
           }}
           initial={closedBoxIconInitialStyle}
           animate={closedBoxIconFinalStyle}
           transition={{ type: "spring" }}
         >
-          {img !== "" ? (
+          {img !== undefined ? (
             <img
               style={{ width: "fit-content", height: "inherit" }}
               src={img}
@@ -92,7 +81,7 @@ function Box(props) {
         </motion.div>
       ) : (
         <div style={{ width: "100%", height: "100%" }}>
-          {img !== "" ? (
+          {img !== undefined ? (
             <img
               style={{ width: "fit-content", height: "inherit" }}
               src={img}

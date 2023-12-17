@@ -18,16 +18,17 @@ function Profile() {
       .catch((error) => console.log(error.message));
   }, []);
 
+  // useEffect(() => {
+  //   setAboutConfig(profileJson?.boxes?.about?.config);
+  // }, [profileJson]);
+
   return (
     <div id="profile">
       <div id="main-wrap-div">
         <Box
           config={{
             img: "mypic.jpeg",
-            initialWidth: "150px",
-            initialHeight: "150px",
-            finalWidth: "300px",
-            finalHeight: "300px",
+            config: profileJson?.boxes?.imgspace?.config,
           }}
         />
 
@@ -53,43 +54,23 @@ function Profile() {
               </div>
             ),
             icon: <FontAwesomeIcon icon={faUser} />,
-            color: profileJson?.boxes?.namespace?.bgColor || "orange",
-            img: "",
-            fontColor: profileJson?.boxes?.namespace?.fontColor || "black",
-            initialWidth: "250px",
-            initialHeight: "150px",
-            finalWidth: "300px",
-            finalHeight: "300px",
+            config: profileJson?.boxes?.namespace?.config,
           }}
         />
-
         <Box
           config={{
             tag: "about",
             title: <div>About Me</div>,
-            icon: <FontAwesomeIcon icon={faUser} />,
-            color: profileJson?.boxes?.about?.bgColor || "orange",
-            img: "",
-            fontColor: profileJson?.boxes?.about?.fontColor || "black",
-            initialWidth: "170px",
-            initialHeight: "150px",
-            finalWidth: "350px",
-            finalHeight: "420px",
+            icon: <FontAwesomeIcon icon={faSmile} />,
+            config: profileJson?.boxes?.about?.config,
           }}
         />
-
         <Box
           config={{
             tag: "skill",
             title: <div>Technical Skillset</div>,
             icon: <FontAwesomeIcon icon={faCode} />,
-            color: profileJson?.boxes?.skill?.bgColor || "orange",
-            img: "",
-            fontColor: profileJson?.boxes?.skill?.fontColor || "black",
-            initialWidth: "250px",
-            initialHeight: "150px",
-            finalWidth: "500px",
-            finalHeight: "420px",
+            config: profileJson?.boxes?.skill?.config,
           }}
         />
       </div>

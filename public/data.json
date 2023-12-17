@@ -1,10 +1,23 @@
 {
   "boxes": {
+    "imgspace": {
+      "url": "",
+      "config": {
+        "style": {
+          "fontColor": "black",
+          "bgColor": "yellow"
+        },
+        "framerAnimation": {
+          "onclickAnimation": {
+            "initialState": { "width": "200px", "height": "200px" },
+            "finalState": { "width": "350px", "height": "420px" }
+          }
+        }
+      }
+    },
     "namespace": {
       "fullName": "Soumyabrata Sarkar",
       "subTitle": "Full Stack Developer",
-      "fontColor": "white",
-      "bgColor": "#8B78E6",
       "content": {
         "socialLinks": [
           {
@@ -24,18 +37,38 @@
           "phno": "+91-9535592494",
           "address": "Bangalore, India"
         }
+      },
+      "config": {
+        "style": {
+          "fontColor": "black",
+          "bgColor": "yellow"
+        },
+        "framerAnimation": {
+          "onclickAnimation": {
+            "initialState": { "width": "200px", "height": "200px" },
+            "finalState": { "width": "350px", "height": "420px" }
+          }
+        }
       }
     },
     "about": {
       "title": "About Me",
-      "fontColor": "black",
-      "bgColor": "orange",
-      "content": "With a robust background spanning 9.5 years in software development, I have honed my expertise in Java backend development, specializing in microservices architecture and cloud technologies. Over the past 2+ years, I have expanded my skill set to encompass full-stack development, demonstrating proficiency in Angular, React, Java, and the MERN (MongoDB, Express.js, React, Node.js) stack. My keen interest extends to the realms of artificial intelligence and machine learning, reflecting a commitment to staying at the forefront of emerging technologies. This multifaceted experience positions me as a versatile and forward-thinking professional in the dynamic field of software development."
+      "content": "With a robust background spanning 9.5 years in software development, I have honed my expertise in Java backend development, specializing in microservices architecture and cloud technologies. Over the past 2+ years, I have expanded my skill set to encompass full-stack development, demonstrating proficiency in Angular, React, Java, and the MERN (MongoDB, Express.js, React, Node.js) stack. My keen interest extends to the realms of artificial intelligence and machine learning, reflecting a commitment to staying at the forefront of emerging technologies. This multifaceted experience positions me as a versatile and forward-thinking professional in the dynamic field of software development.",
+      "config": {
+        "style": {
+          "fontColor": "black",
+          "bgColor": "yellow"
+        },
+        "framerAnimation": {
+          "onclickAnimation": {
+            "initialState": { "width": "200px", "height": "200px" },
+            "finalState": { "width": "350px", "height": "420px" }
+          }
+        }
+      }
     },
     "skill": {
       "title": "Skills",
-      "fontColor": "white",
-      "bgColor": "#3C40C6",
       "content": [
         {
           "name": "Java / J2EE",
@@ -82,7 +115,19 @@
           "rating": 4,
           "note": ""
         }
-      ]
+      ],
+      "config": {
+        "style": {
+          "fontColor": "black",
+          "bgColor": "yellow"
+        },
+        "framerAnimation": {
+          "onclickAnimation": {
+            "initialState": { "width": "200px", "height": "200px" },
+            "finalState": { "width": "500px", "height": "420px" }
+          }
+        }
+      }
     }
   }
 }
