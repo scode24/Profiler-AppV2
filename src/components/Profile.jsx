@@ -1,7 +1,11 @@
 import React, { useEffect } from "react";
 import Box from "./Box";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSmile, faUser } from "@fortawesome/free-regular-svg-icons";
+import {
+  faFileCode,
+  faSmile,
+  faUser,
+} from "@fortawesome/free-regular-svg-icons";
 import profileStore from "../data-store/ProfileStore";
 import axios from "axios";
 import { faCode } from "@fortawesome/free-solid-svg-icons";
@@ -17,10 +21,6 @@ function Profile() {
       })
       .catch((error) => console.log(error.message));
   }, []);
-
-  // useEffect(() => {
-  //   setAboutConfig(profileJson?.boxes?.about?.config);
-  // }, [profileJson]);
 
   return (
     <div id="profile">
@@ -70,6 +70,14 @@ function Profile() {
             tag: "skill",
             title: <div>Technical Skillset</div>,
             icon: <FontAwesomeIcon icon={faCode} />,
+            config: profileJson?.boxes?.skill?.config,
+          }}
+        />
+        <Box
+          config={{
+            tag: "projects",
+            title: <div>Projects</div>,
+            icon: <FontAwesomeIcon icon={faFileCode} />,
             config: profileJson?.boxes?.skill?.config,
           }}
         />

@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
 import profileStore from "../data-store/ProfileStore";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faAngular,
   faAws,
@@ -14,13 +13,15 @@ import {
   faProjectDiagram,
 } from "@fortawesome/free-solid-svg-icons";
 import { faMap, faWindowRestore } from "@fortawesome/free-regular-svg-icons";
-import { Rating } from "react-simple-star-rating";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-function Skill() {
+function Projects() {
   const { profileJson } = profileStore();
-  const skillContent = profileJson.boxes.skill.content;
+  const projectList = profileJson?.boxes?.projects?.content;
+  const [index, setIndex] = useState(0);
 
   const getSkillIcon = (skillname) => {
+    console.log(skillname);
     if (skillname.toLowerCase().indexOf("react") !== -1) {
       return (
         <FontAwesomeIcon
@@ -103,36 +104,78 @@ function Skill() {
 
   return (
     <div className="box-content">
-      <div
-        style={{
-          display: "flex",
-          flexWrap: "wrap",
-          width: "inherit",
-          marginTop: "20px",
-        }}
-      >
-        {skillContent.map((skill, index) => (
+      <div style={{ marginTop: "20px" }}>
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <span style={{ fontWeight: "bold", fontSize: "15px" }}>
+            {projectList[index].name}
+          </span>
+          <span>{projectList[index].type}</span>
+
           <div
-            key={index}
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center",
-              marginRight: "20px",
-              marginBottom: "20px",
-              width: "110px",
-            }}
+            style={{ display: "flex", flexDirection: "row", marginTop: "20px" }}
           >
-            {getSkillIcon(skill.name)}
-            <span>{skill.name}</span>
-            <Rating size={10} initialValue={skill.rating} allowFraction />
-            <span>{skill.note}</span>
+            <button
+              style={{
+                border: "1px solid",
+                borderRadius: "20px",
+                padding: "5px",
+                marginRight: "7px",
+              }}
+            >
+              Project Overview
+            </button>
+            <button
+              style={{
+                border: "1px solid",
+                borderRadius: "20px",
+                padding: "5px",
+                marginRight: "7px",
+              }}
+            >
+              Technology Used
+            </button>
+            <button
+              style={{
+                border: "1px solid",
+                borderRadius: "20px",
+                padding: "5px",
+                marginRight: "7px",
+              }}
+            >
+              Project Links
+            </button>
           </div>
-        ))}
+
+          {/* <div style={{ display: "flex", flexDirection: "column" }}>
+            <span style={{ fontWeight: "bold" }}>Technology Used</span>
+            <div style={{ display: "flex", flexWrap: "wrap" }}>
+              {projectList[index].technology
+                .split(",")
+                .map((technology, index) => {
+                  return (
+                    <div
+                      key={index}
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        marginRight: "20px",
+                        marginBottom: "20px",
+                        width: "110px",
+                      }}
+                    >
+                      {getSkillIcon(technology)}
+                      <span>{technology}</span>
+                    </div>
+                  );
+                })}
+            </div>
+          </div> */}
+        </div>
       </div>
     </div>
   );
 }
 
-export default Skill;
+export default Projects;

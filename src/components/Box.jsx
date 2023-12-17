@@ -3,6 +3,9 @@ import React, { useState } from "react";
 import About from "../box-contents/About";
 import NameSpace from "../box-contents/NameSpace";
 import Skill from "../box-contents/Skill";
+import Projects from "../box-contents/Projects";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faClose } from "@fortawesome/free-solid-svg-icons";
 
 function Box(props) {
   const { tag, title, icon, img, config } = props.config;
@@ -11,13 +14,17 @@ function Box(props) {
   const animator = useAnimationControls();
   const [isBoxOpened, setIsBoxOpened] = useState(false);
 
-  const openCloseBox = () => {
+  const openBox = () => {
+    if (!isBoxOpened) {
+      animator.start(config?.framerAnimation?.onclickAnimation?.finalState);
+      setIsBoxOpened(true);
+    }
+  };
+
+  const closeBox = () => {
     if (isBoxOpened) {
       animator.start(config?.framerAnimation?.onclickAnimation?.initialState);
       setIsBoxOpened(false);
-    } else {
-      animator.start(config?.framerAnimation?.onclickAnimation?.finalState);
-      setIsBoxOpened(true);
     }
   };
 
@@ -29,6 +36,8 @@ function Box(props) {
         return <About />;
       case "skill":
         return <Skill />;
+      case "projects":
+        return <Projects />;
 
       default:
         break;
@@ -49,7 +58,7 @@ function Box(props) {
       }}
       initial={config?.framerAnimation?.onclickAnimation?.initialState}
       animate={animator}
-      onClick={openCloseBox}
+      onClick={openBox}
       transition={{ type: "spring" }}
     >
       {!isBoxOpened ? (
@@ -89,11 +98,24 @@ function Box(props) {
             />
           ) : (
             <>
-              <div style={{ width: "100%", height: "max-content" }}>
-                <div style={{ fontSize: "24px", marginBottom: "7px" }}>
-                  {icon}
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                  width: "100%",
+                  height: "max-content",
+                }}
+              >
+                <div>
+                  <div style={{ fontSize: "24px", marginBottom: "7px" }}>
+                    {icon}
+                  </div>
+                  {title}
                 </div>
-                {title}
+                <div onClick={closeBox}>
+                  <FontAwesomeIcon icon={faClose} />
+                </div>
               </div>
               {getComponent(tag)}
             </>
