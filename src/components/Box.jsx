@@ -95,6 +95,7 @@ function Box(props) {
               style={{ width: "fit-content", height: "inherit" }}
               src={img}
               alt="user pic"
+              onClick={closeBox}
             />
           ) : (
             <>

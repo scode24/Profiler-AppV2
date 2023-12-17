@@ -60,9 +60,13 @@ function NameSpace() {
           marginTop: "20px",
         }}
       >
-        {socialLinks.map((link, index) => (
-          <div style={{ width: "fit-content" }} key={index}>
-            {renderLink(link)}
+        {socialLinks.map((linkData, index) => (
+          <div
+            style={{ width: "fit-content" }}
+            key={index}
+            onClick={() => window.open(linkData.link)}
+          >
+            {renderLink(linkData)}
           </div>
         ))}
       </div>

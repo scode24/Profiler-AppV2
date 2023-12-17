@@ -25,8 +25,17 @@
 .empty-icons {
   display: flex !important;
 }
+
 .filled-icons {
   display: -webkit-inline-box !important;
+}
+
+.custom-button {
+  border: 1px solid;
+  border-radius: 20px;
+  padding: 5px;
+  margin-right: 7px;
+  width: 120px;
 }
 
 @media (max-width: 767.98px) {

@@ -22,15 +22,15 @@
         "socialLinks": [
           {
             "title": "GitHub",
-            "link": "test/link"
+            "link": "https://github.com/scode24"
           },
           {
             "title": "LinkedIn",
-            "link": "test/link1"
+            "link": "https://www.linkedin.com/in/soumyabrata-sarkar/"
           },
           {
             "title": "Mail",
-            "link": "test/link1"
+            "link": "mailto:soumyabrata024@gmail.com"
           }
         ],
         "contacts": {
@@ -136,7 +136,7 @@
           "type": "Personal project",
           "name": "Profiler",
           "description": "Profiler shows user's profile with all the relevant information in an interactive way. User can create profiles by calling some APIs defined. User can insert/update/delete information just by sending JSON data to particular API",
-          "technology": "J2EE, Spring-Boot, React JS, Postgres, Swagger documentation, Git, AWS EC2, S3, RDS",
+          "technology": "J2EE, Spring-Boot, React JS, Postgres, Swagger API, Git, AWS EC2, S3, RDS",
           "company": "",
           "githubLink": "https://github.com/scode24/profiler-ui,https://github.com/scode24/profiler-service",
           "liveLink": "",
@@ -221,10 +221,58 @@
         "framerAnimation": {
           "onclickAnimation": {
             "initialState": { "width": "200px", "height": "200px" },
-            "finalState": { "width": "500px", "height": "420px" }
+            "finalState": { "width": "500px", "height": "500px" }
           }
         }
       }
-    }
+    },
+    "workingExperiences": [
+      {
+        "company": "Thomson Reuters",
+        "designation": "Senior Software Engineer",
+        "jobStartDate": "May-2021",
+        "jobEndDate": "Running"
+      },
+      {
+        "company": "Capgemini",
+        "designation": "Lead Developer/Scrum Master",
+        "jobStartDate": "Nov-2018",
+        "jobEndDate": "May-2021"
+      },
+      {
+        "company": "Infosys",
+        "designation": "Application Developer/ Module Lead",
+        "jobStartDate": "July-2017",
+        "jobEndDate": "Aug-2018"
+      },
+      {
+        "company": "IBM",
+        "designation": "Application Developer",
+        "jobStartDate": "Dec-2014",
+        "jobEndDate": "July-2017"
+      }
+    ],
+    "achievements": [
+      {
+        "achievement": "Manager's Choice Award for Restlessly Reinvent IBM and Ourselves",
+        "source": "IBM"
+      },
+      {
+        "achievement": "Manager's Choice Award for Put the Client First, Deep Skill Adder Award",
+        "source": "IBM"
+      },
+      {
+        "achievement": "Project Star",
+        "source": "Capgemini"
+      }
+    ],
+    "qualification": [
+      {
+        "degree": "BTECH in Computer Science",
+        "yearOfPassing": "2013",
+        "institute": "Academy Of Technology, West Bengal University of Technology",
+        "cgpaDgpaPercentage": "8.74"
+      }
+    ]
   }
 }

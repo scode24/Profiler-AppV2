@@ -1,153 +1,30 @@
 import React, { useState } from "react";
 import profileStore from "../data-store/ProfileStore";
-import {
-  faAngular,
-  faAws,
-  faDocker,
-  faJava,
-  faJs,
-  faReact,
-} from "@fortawesome/free-brands-svg-icons";
-import {
-  faDraftingCompass,
-  faProjectDiagram,
-} from "@fortawesome/free-solid-svg-icons";
-import { faMap, faWindowRestore } from "@fortawesome/free-regular-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import getIcon from "../shared/IconsFinder";
 
 function Projects() {
   const { profileJson } = profileStore();
   const projectList = profileJson?.boxes?.projects?.content;
   const [index, setIndex] = useState(0);
+  const [option, setOption] = useState();
 
-  const getSkillIcon = (skillname) => {
-    console.log(skillname);
-    if (skillname.toLowerCase().indexOf("react") !== -1) {
-      return (
-        <FontAwesomeIcon
-          style={{ fontSize: "24px", marginBottom: "5px" }}
-          icon={faReact}
-        />
-      );
-    }
-    if (skillname.toLowerCase().indexOf("angular") !== -1) {
-      return (
-        <FontAwesomeIcon
-          style={{ fontSize: "24px", marginBottom: "5px" }}
-          icon={faAngular}
-        />
-      );
-    }
-    if (skillname.toLowerCase().indexOf("aws") !== -1) {
-      return (
-        <FontAwesomeIcon
-          style={{ fontSize: "24px", marginBottom: "5px" }}
-          icon={faAws}
-        />
-      );
-    }
-    if (skillname.toLowerCase().indexOf("java") !== -1) {
-      return (
-        <FontAwesomeIcon
-          style={{ fontSize: "24px", marginBottom: "5px" }}
-          icon={faJava}
-        />
-      );
-    }
-    if (skillname.toLowerCase().indexOf("microservice") !== -1) {
-      return (
-        <FontAwesomeIcon
-          style={{ fontSize: "24px", marginBottom: "5px" }}
-          icon={faProjectDiagram}
-        />
-      );
-    }
-    if (skillname.toLowerCase().indexOf("docker") !== -1) {
-      return (
-        <FontAwesomeIcon
-          style={{ fontSize: "24px", marginBottom: "5px" }}
-          icon={faDocker}
-        />
-      );
-    }
-    if (skillname.toLowerCase().indexOf("ci/cd") !== -1) {
-      return (
-        <FontAwesomeIcon
-          style={{ fontSize: "24px", marginBottom: "5px" }}
-          icon={faWindowRestore}
-        />
-      );
-    }
-    if (skillname.toLowerCase().indexOf("js") !== -1) {
-      return (
-        <FontAwesomeIcon
-          style={{ fontSize: "24px", marginBottom: "5px" }}
-          icon={faJs}
-        />
-      );
-    }
-    if (skillname.toLowerCase().indexOf("map") !== -1) {
-      return (
-        <FontAwesomeIcon
-          style={{ fontSize: "24px", marginBottom: "5px" }}
-          icon={faMap}
-        />
-      );
-    }
-    return (
-      <FontAwesomeIcon
-        style={{ fontSize: "24px", marginBottom: "10px" }}
-        icon={faDraftingCompass}
-      />
-    );
+  const openLinks = (links) => {
+    links.split(",").forEach((link) => {
+      window.open(link);
+    });
   };
 
-  return (
-    <div className="box-content">
-      <div style={{ marginTop: "20px" }}>
-        <div style={{ display: "flex", flexDirection: "column" }}>
-          <span style={{ fontWeight: "bold", fontSize: "15px" }}>
-            {projectList[index].name}
-          </span>
-          <span>{projectList[index].type}</span>
-
+  const renderContent = (option, project) => {
+    switch (option) {
+      case "overview":
+        return <div style={{ marginTop: "20px" }}>{project.description}</div>;
+      case "technology":
+        return (
           <div
-            style={{ display: "flex", flexDirection: "row", marginTop: "20px" }}
+            style={{
+              marginTop: "20px",
+            }}
           >
-            <button
-              style={{
-                border: "1px solid",
-                borderRadius: "20px",
-                padding: "5px",
-                marginRight: "7px",
-              }}
-            >
-              Project Overview
-            </button>
-            <button
-              style={{
-                border: "1px solid",
-                borderRadius: "20px",
-                padding: "5px",
-                marginRight: "7px",
-              }}
-            >
-              Technology Used
-            </button>
-            <button
-              style={{
-                border: "1px solid",
-                borderRadius: "20px",
-                padding: "5px",
-                marginRight: "7px",
-              }}
-            >
-              Project Links
-            </button>
-          </div>
-
-          {/* <div style={{ display: "flex", flexDirection: "column" }}>
-            <span style={{ fontWeight: "bold" }}>Technology Used</span>
             <div style={{ display: "flex", flexWrap: "wrap" }}>
               {projectList[index].technology
                 .split(",")
@@ -165,13 +42,122 @@ function Projects() {
                         width: "110px",
                       }}
                     >
-                      {getSkillIcon(technology)}
+                      {getIcon(technology)}
                       <span>{technology}</span>
                     </div>
                   );
                 })}
             </div>
-          </div> */}
+          </div>
+        );
+
+      case "links":
+        return (
+          <div
+            style={{
+              marginTop: "20px",
+            }}
+          >
+            <div style={{ display: "flex", flexWrap: "wrap" }}>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  marginRight: "20px",
+                  marginBottom: "20px",
+                  width: "110px",
+                }}
+                onClick={() => openLinks(projectList[index].githubLink)}
+              >
+                {getIcon("github")}
+                <span>GitHub Link</span>
+              </div>
+
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  marginRight: "20px",
+                  marginBottom: "20px",
+                  width: "110px",
+                }}
+                onClick={() => window.open(projectList[index].liveLink)}
+              >
+                {getIcon("link")}
+                <span>Live Link</span>
+              </div>
+            </div>
+          </div>
+        );
+
+      default:
+        return <div style={{ marginTop: "20px" }}>{project.description}</div>;
+    }
+  };
+
+  return (
+    <div className="box-content">
+      <div style={{ marginTop: "20px" }}>
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <span style={{ fontWeight: "bold", fontSize: "15px" }}>
+            {projectList[index].name}
+          </span>
+          <span>{projectList[index].type}</span>
+
+          <div
+            style={{ display: "flex", flexDirection: "row", marginTop: "20px" }}
+          >
+            <button
+              className="custom-button"
+              onClick={() => setOption("overview")}
+            >
+              Project Overview
+            </button>
+            <button
+              className="custom-button"
+              onClick={() => setOption("technology")}
+            >
+              Technology Used
+            </button>
+            <button
+              className="custom-button"
+              onClick={() => setOption("links")}
+            >
+              Project Links
+            </button>
+          </div>
+
+          {renderContent(option, projectList[index])}
+
+          <div
+            style={{ display: "flex", flexDirection: "row", marginTop: "20px" }}
+          >
+            {index > 0 ? (
+              <button
+                className="custom-button"
+                onClick={() => setIndex(index - 1)}
+              >
+                Previous Poject
+              </button>
+            ) : (
+              <></>
+            )}
+
+            {index < projectList.length - 2 ? (
+              <button
+                className="custom-button"
+                onClick={() => setIndex(index + 1)}
+              >
+                Next Poject
+              </button>
+            ) : (
+              <></>
+            )}
+          </div>
         </div>
       </div>
     </div>
