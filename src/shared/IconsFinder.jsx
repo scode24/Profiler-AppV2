@@ -12,7 +12,11 @@ import {
   faDraftingCompass,
   faProjectDiagram,
 } from "@fortawesome/free-solid-svg-icons";
-import { faMap, faWindowRestore } from "@fortawesome/free-regular-svg-icons";
+import {
+  faMap,
+  faStar,
+  faWindowRestore,
+} from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const getIcon = (skillname) => {
@@ -102,6 +106,14 @@ const getIcon = (skillname) => {
       <FontAwesomeIcon
         style={{ fontSize: "24px", marginBottom: "5px" }}
         icon={faMap}
+      />
+    );
+  }
+  if (skillname.toLowerCase().indexOf("achievement") !== -1) {
+    return (
+      <FontAwesomeIcon
+        style={{ fontSize: "24px", marginBottom: "5px" }}
+        icon={faStar}
       />
     );
   }

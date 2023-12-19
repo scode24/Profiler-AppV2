@@ -2,9 +2,12 @@ import React, { useEffect } from "react";
 import Box from "./Box";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
+  faBuilding,
   faFileCode,
+  faFlag,
   faSmile,
   faUser,
+  faStar,
 } from "@fortawesome/free-regular-svg-icons";
 import profileStore from "../data-store/ProfileStore";
 import axios from "axios";
@@ -67,10 +70,10 @@ function Profile() {
         />
         <Box
           config={{
-            tag: "skill",
+            tag: "skills",
             title: <div>Technical Skillset</div>,
             icon: <FontAwesomeIcon icon={faCode} />,
-            config: profileJson?.boxes?.skill?.config,
+            config: profileJson?.boxes?.skills?.config,
           }}
         />
         <Box
@@ -78,7 +81,33 @@ function Profile() {
             tag: "projects",
             title: <div>Projects</div>,
             icon: <FontAwesomeIcon icon={faFileCode} />,
-            config: profileJson?.boxes?.skill?.config,
+            config: profileJson?.boxes?.projects?.config,
+          }}
+        />
+        <Box
+          config={{
+            tag: "experiences",
+            title: <div>Experiences</div>,
+            icon: <FontAwesomeIcon icon={faBuilding} />,
+            config: profileJson?.boxes?.experiences?.config,
+          }}
+        />
+
+        <Box
+          config={{
+            tag: "achievements",
+            title: <div>Achievements</div>,
+            icon: <FontAwesomeIcon icon={faStar} />,
+            config: profileJson?.boxes?.achievements?.config,
+          }}
+        />
+
+        <Box
+          config={{
+            tag: "qualification",
+            title: <div>Qualification</div>,
+            icon: <FontAwesomeIcon icon={faFlag} />,
+            config: profileJson?.boxes?.qualification?.config,
           }}
         />
       </div>

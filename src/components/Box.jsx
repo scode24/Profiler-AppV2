@@ -2,10 +2,13 @@ import { motion, useAnimationControls } from "framer-motion";
 import React, { useState } from "react";
 import About from "../box-contents/About";
 import NameSpace from "../box-contents/NameSpace";
-import Skill from "../box-contents/Skill";
+import Skills from "../box-contents/Skills";
 import Projects from "../box-contents/Projects";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClose } from "@fortawesome/free-solid-svg-icons";
+import Experiences from "../box-contents/Experiences";
+import Qualification from "../box-contents/Qualification";
+import Achievements from "../box-contents/Achievements";
 
 function Box(props) {
   const { tag, title, icon, img, config } = props.config;
@@ -34,10 +37,16 @@ function Box(props) {
         return <NameSpace />;
       case "about":
         return <About />;
-      case "skill":
-        return <Skill />;
+      case "skills":
+        return <Skills />;
       case "projects":
         return <Projects />;
+      case "experiences":
+        return <Experiences />;
+      case "qualification":
+        return <Qualification />;
+      case "achievements":
+        return <Achievements />;
 
       default:
         break;

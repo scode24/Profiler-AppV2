@@ -46,7 +46,7 @@
         "framerAnimation": {
           "onclickAnimation": {
             "initialState": { "width": "200px", "height": "200px" },
-            "finalState": { "width": "350px", "height": "420px" }
+            "finalState": { "width": "350px", "height": "350px" }
           }
         }
       }
@@ -67,7 +67,7 @@
         }
       }
     },
-    "skill": {
+    "skills": {
       "title": "Skills",
       "content": [
         {
@@ -226,53 +226,102 @@
         }
       }
     },
-    "workingExperiences": [
-      {
-        "company": "Thomson Reuters",
-        "designation": "Senior Software Engineer",
-        "jobStartDate": "May-2021",
-        "jobEndDate": "Running"
-      },
-      {
-        "company": "Capgemini",
-        "designation": "Lead Developer/Scrum Master",
-        "jobStartDate": "Nov-2018",
-        "jobEndDate": "May-2021"
-      },
-      {
-        "company": "Infosys",
-        "designation": "Application Developer/ Module Lead",
-        "jobStartDate": "July-2017",
-        "jobEndDate": "Aug-2018"
-      },
-      {
-        "company": "IBM",
-        "designation": "Application Developer",
-        "jobStartDate": "Dec-2014",
-        "jobEndDate": "July-2017"
+    "experiences": {
+      "titile": "Working Experiences",
+      "content": [
+        {
+          "company": "Thomson Reuters",
+          "designation": "Senior Software Engineer",
+          "jobStartDate": "May-2021",
+          "jobEndDate": "Aug-2023"
+        },
+        {
+          "company": "Capgemini",
+          "designation": "Lead Developer/Scrum Master",
+          "jobStartDate": "Nov-2018",
+          "jobEndDate": "May-2021"
+        },
+        {
+          "company": "Infosys",
+          "designation": "Application Developer/ Module Lead",
+          "jobStartDate": "July-2017",
+          "jobEndDate": "Aug-2018"
+        },
+        {
+          "company": "IBM",
+          "designation": "Application Developer",
+          "jobStartDate": "Dec-2014",
+          "jobEndDate": "July-2017"
+        }
+      ],
+      "config": {
+        "style": {
+          "fontColor": "black",
+          "bgColor": "yellow"
+        },
+        "framerAnimation": {
+          "onclickAnimation": {
+            "initialState": { "width": "200px", "height": "200px" },
+            "finalState": { "width": "350px", "height": "500px" }
+          }
+        }
       }
-    ],
-    "achievements": [
-      {
-        "achievement": "Manager's Choice Award for Restlessly Reinvent IBM and Ourselves",
-        "source": "IBM"
-      },
-      {
-        "achievement": "Manager's Choice Award for Put the Client First, Deep Skill Adder Award",
-        "source": "IBM"
-      },
-      {
-        "achievement": "Project Star",
-        "source": "Capgemini"
+    },
+    "achievements": {
+      "titile": "Achievements",
+      "content": [
+        {
+          "title": "Manager's Choice Award for Restlessly Reinvent IBM and Ourselves",
+          "source": "IBM"
+        },
+        {
+          "title": "Manager's Choice Award for Put the Client First, Deep Skill Adder Award",
+          "source": "IBM"
+        },
+        {
+          "title": "Project Star",
+          "source": "Capgemini"
+        },
+        {
+          "title": "Surge Award",
+          "source": "Thomson Reuters"
+        }
+      ],
+      "config": {
+        "style": {
+          "fontColor": "black",
+          "bgColor": "yellow"
+        },
+        "framerAnimation": {
+          "onclickAnimation": {
+            "initialState": { "width": "200px", "height": "200px" },
+            "finalState": { "width": "420px", "height": "350px" }
+          }
+        }
       }
-    ],
-    "qualification": [
-      {
-        "degree": "BTECH in Computer Science",
-        "yearOfPassing": "2013",
-        "institute": "Academy Of Technology, West Bengal University of Technology",
-        "cgpaDgpaPercentage": "8.74"
+    },
+    "qualification": {
+      "title": "Projects",
+      "content": [
+        {
+          "degree": "BTECH in Computer Science",
+          "yearOfPassing": "2013",
+          "institute": "Academy Of Technology, West Bengal University of Technology",
+          "cgpaDgpaPercentage": "8.74"
+        }
+      ],
+      "config": {
+        "style": {
+          "fontColor": "black",
+          "bgColor": "yellow"
+        },
+        "framerAnimation": {
+          "onclickAnimation": {
+            "initialState": { "width": "200px", "height": "200px" },
+            "finalState": { "width": "300px", "height": "250px" }
+          }
+        }
       }
-    ]
+    }
   }
 }

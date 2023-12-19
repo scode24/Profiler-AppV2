@@ -5,7 +5,7 @@ import getIcon from "../shared/IconsFinder";
 
 function Skill() {
   const { profileJson } = profileStore();
-  const skillContent = profileJson.boxes.skill.content;
+  const skillContent = profileJson.boxes.skills.content;
 
   return (
     <div className="box-content">
