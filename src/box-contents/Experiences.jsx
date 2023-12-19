@@ -11,11 +11,15 @@ function Experiences() {
         return (
           <StepperItem
             config={{
-              isStartNode: index === 0 ? true : false,
-              isEndNode: index === companyList.length ? true : false,
+              isStartNode: index === 0 && companyList.length > 1 ? true : false,
+              isEndNode:
+                index === companyList.length && companyList.length > 1
+                  ? true
+                  : false,
               leftInfo: comp.jobStartDate + "-" + comp.jobEndDate,
               rightInfoMain: comp.company,
               rightInfoSub: comp.designation,
+              color: profileJson?.boxes?.experiences?.config?.style?.fontColor,
             }}
           ></StepperItem>
         );

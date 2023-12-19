@@ -4,8 +4,8 @@
       "url": "",
       "config": {
         "style": {
-          "fontColor": "black",
-          "bgColor": "yellow"
+          "fontColor": "white",
+          "bgColor": "#4834DF"
         },
         "framerAnimation": {
           "onclickAnimation": {
@@ -40,8 +40,8 @@
       },
       "config": {
         "style": {
-          "fontColor": "black",
-          "bgColor": "yellow"
+          "fontColor": "white",
+          "bgColor": "#4834DF"
         },
         "framerAnimation": {
           "onclickAnimation": {
@@ -56,8 +56,8 @@
       "content": "With a robust background spanning 9.5 years in software development, I have honed my expertise in Java backend development, specializing in microservices architecture and cloud technologies. Over the past 2+ years, I have expanded my skill set to encompass full-stack development, demonstrating proficiency in Angular, React, Java, and the MERN (MongoDB, Express.js, React, Node.js) stack. My keen interest extends to the realms of artificial intelligence and machine learning, reflecting a commitment to staying at the forefront of emerging technologies. This multifaceted experience positions me as a versatile and forward-thinking professional in the dynamic field of software development.",
       "config": {
         "style": {
-          "fontColor": "black",
-          "bgColor": "yellow"
+          "fontColor": "white",
+          "bgColor": "#4834DF"
         },
         "framerAnimation": {
           "onclickAnimation": {
@@ -118,8 +118,8 @@
       ],
       "config": {
         "style": {
-          "fontColor": "black",
-          "bgColor": "yellow"
+          "fontColor": "white",
+          "bgColor": "#4834DF"
         },
         "framerAnimation": {
           "onclickAnimation": {
@@ -215,8 +215,8 @@
       ],
       "config": {
         "style": {
-          "fontColor": "black",
-          "bgColor": "yellow"
+          "fontColor": "white",
+          "bgColor": "#4834DF"
         },
         "framerAnimation": {
           "onclickAnimation": {
@@ -227,7 +227,7 @@
       }
     },
     "experiences": {
-      "titile": "Working Experiences",
+      "title": "Working Experiences",
       "content": [
         {
           "company": "Thomson Reuters",
@@ -256,8 +256,8 @@
       ],
       "config": {
         "style": {
-          "fontColor": "black",
-          "bgColor": "yellow"
+          "fontColor": "white",
+          "bgColor": "#4834DF"
         },
         "framerAnimation": {
           "onclickAnimation": {
@@ -268,7 +268,7 @@
       }
     },
     "achievements": {
-      "titile": "Achievements",
+      "title": "Achievements",
       "content": [
         {
           "title": "Manager's Choice Award for Restlessly Reinvent IBM and Ourselves",
@@ -289,8 +289,8 @@
       ],
       "config": {
         "style": {
-          "fontColor": "black",
-          "bgColor": "yellow"
+          "fontColor": "white",
+          "bgColor": "#4834DF"
         },
         "framerAnimation": {
           "onclickAnimation": {
@@ -301,7 +301,7 @@
       }
     },
     "qualification": {
-      "title": "Projects",
+      "title": "Qualification",
       "content": [
         {
           "degree": "BTECH in Computer Science",
@@ -312,8 +312,8 @@
       ],
       "config": {
         "style": {
-          "fontColor": "black",
-          "bgColor": "yellow"
+          "fontColor": "white",
+          "bgColor": "#4834DF"
         },
         "framerAnimation": {
           "onclickAnimation": {

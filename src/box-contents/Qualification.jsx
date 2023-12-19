@@ -11,11 +11,18 @@ function Qualification() {
         return (
           <StepperItem
             config={{
-              isStartNode: index === 0 ? true : false,
-              isEndNode: index === qualificationList.length ? true : false,
+              isStartNode:
+                index === 0 && qualificationList.length > 1 ? true : false,
+              isEndNode:
+                index === qualificationList.length &&
+                qualificationList.length > 1
+                  ? true
+                  : false,
               leftInfo: qualification.yearOfPassing,
               rightInfoMain: qualification.institute,
               rightInfoSub: qualification.cgpaDgpaPercentage,
+              color:
+                profileJson?.boxes?.qualification?.config?.style?.fontColor,
             }}
           ></StepperItem>
         );

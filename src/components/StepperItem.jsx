@@ -1,8 +1,14 @@
 import React from "react";
 
 function StepperItem(props) {
-  const { isStartNode, isEndNode, leftInfo, rightInfoMain, rightInfoSub } =
-    props.config;
+  const {
+    isStartNode,
+    isEndNode,
+    leftInfo,
+    rightInfoMain,
+    rightInfoSub,
+    color,
+  } = props.config;
 
   const getNodeType = () => {
     if (isStartNode) return "start-node";
@@ -14,9 +20,9 @@ function StepperItem(props) {
     <div className="item">
       <div className={"left-info"}>{leftInfo}</div>
       <div className={getNodeType()}>
-        <div className="line"></div>
+        <div className="line" style={{ borderColor: color }}></div>
         <div className="mark">
-          <div className="dot"></div>
+          <div className="dot" style={{ backgroundColor: color }}></div>
         </div>
       </div>
       <div className="right-info">

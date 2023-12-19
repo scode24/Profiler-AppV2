@@ -63,7 +63,7 @@ function Profile() {
         <Box
           config={{
             tag: "about",
-            title: <div>About Me</div>,
+            title: <div>{profileJson?.boxes?.about?.title}</div>,
             icon: <FontAwesomeIcon icon={faSmile} />,
             config: profileJson?.boxes?.about?.config,
           }}
@@ -71,7 +71,7 @@ function Profile() {
         <Box
           config={{
             tag: "skills",
-            title: <div>Technical Skillset</div>,
+            title: <div>{profileJson?.boxes?.skills?.title}</div>,
             icon: <FontAwesomeIcon icon={faCode} />,
             config: profileJson?.boxes?.skills?.config,
           }}
@@ -79,7 +79,7 @@ function Profile() {
         <Box
           config={{
             tag: "projects",
-            title: <div>Projects</div>,
+            title: <div>{profileJson?.boxes?.projects?.title}</div>,
             icon: <FontAwesomeIcon icon={faFileCode} />,
             config: profileJson?.boxes?.projects?.config,
           }}
@@ -87,7 +87,7 @@ function Profile() {
         <Box
           config={{
             tag: "experiences",
-            title: <div>Experiences</div>,
+            title: <div>{profileJson?.boxes?.experiences?.title}</div>,
             icon: <FontAwesomeIcon icon={faBuilding} />,
             config: profileJson?.boxes?.experiences?.config,
           }}
@@ -96,7 +96,7 @@ function Profile() {
         <Box
           config={{
             tag: "achievements",
-            title: <div>Achievements</div>,
+            title: <div>{profileJson?.boxes?.achievements?.title}</div>,
             icon: <FontAwesomeIcon icon={faStar} />,
             config: profileJson?.boxes?.achievements?.config,
           }}
@@ -105,7 +105,7 @@ function Profile() {
         <Box
           config={{
             tag: "qualification",
-            title: <div>Qualification</div>,
+            title: <div>{profileJson?.boxes?.qualification?.title}</div>,
             icon: <FontAwesomeIcon icon={faFlag} />,
             config: profileJson?.boxes?.qualification?.config,
           }}

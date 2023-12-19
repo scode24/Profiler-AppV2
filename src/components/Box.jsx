@@ -53,7 +53,7 @@ function Box(props) {
     }
   };
 
-  return (
+  return config !== undefined ? (
     <motion.div
       style={{
         background: config?.style?.bgColor,
@@ -133,6 +133,8 @@ function Box(props) {
         </div>
       )}
     </motion.div>
+  ) : (
+    <></>
   );
 }
 
