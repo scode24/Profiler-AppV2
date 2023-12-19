@@ -2,6 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+#header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px 50px 20px 50px;
+  color: rgb(178, 178, 178);
+  font-weight: bolder;
+}
+
+#header #title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 #profile {
   display: flex;
   flex-direction: column;
@@ -146,5 +161,9 @@
     display: flex;
     flex-wrap: wrap;
     width: 100%;
+  }
+
+  #header {
+    padding: 20px 20px 20px 20px;
   }
 }
