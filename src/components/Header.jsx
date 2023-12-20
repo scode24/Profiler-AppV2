@@ -1,10 +1,20 @@
-import { faUser } from "@fortawesome/free-regular-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
 function Header() {
   const navigator = useNavigate();
+
+  const select = (e) => {
+    switch (e.target.value) {
+      case "about":
+        navigator("/about");
+        break;
+
+      default:
+        break;
+    }
+  };
+
   return (
     <div id="header">
       <div id="title">
@@ -21,10 +31,10 @@ function Header() {
         </button>
       </div>
 
-      <select id="mobile-options" className="custom-button">
+      <select id="mobile-options" className="custom-button" onChange={select}>
         <option>Menu</option>
-        <option>About</option>
-        <option>Create Profile</option>
+        <option value={"about"}>About</option>
+        <option value={"console"}>Console</option>
       </select>
     </div>
   );
