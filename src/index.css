@@ -7,7 +7,6 @@
   flex-direction: row;
   justify-content: space-between;
   padding: 20px 50px 20px 50px;
-  color: rgb(178, 178, 178);
   font-weight: bolder;
 }
 
@@ -15,6 +14,15 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  color: rgb(185, 185, 185);
+}
+
+#options {
+  display: block;
+}
+
+#mobile-options {
+  display: none;
 }
 
 #profile {
@@ -165,5 +173,13 @@
 
   #header {
     padding: 20px 20px 20px 20px;
+  }
+
+  #options {
+    display: none;
+  }
+
+  #mobile-options {
+    display: block;
   }
 }

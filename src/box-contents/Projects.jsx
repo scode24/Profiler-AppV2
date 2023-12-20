@@ -95,7 +95,11 @@ function Projects() {
         );
 
       default:
-        return <div style={{ marginTop: "20px" }}>{project.description}</div>;
+        return (
+          <div style={{ marginTop: "20px", textAlign: "justify" }}>
+            {project.description}
+          </div>
+        );
     }
   };
 

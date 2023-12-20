@@ -1,5 +1,5 @@
 import { motion, useAnimationControls } from "framer-motion";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import About from "../box-contents/About";
 import NameSpace from "../box-contents/NameSpace";
 import Skills from "../box-contents/Skills";
@@ -14,19 +14,39 @@ function Box(props) {
   const { tag, title, icon, img, config } = props.config;
   const closedBoxIconInitialStyle = { opacity: 0, marginTop: "20px" };
   const closedBoxIconFinalStyle = { opacity: 1, marginTop: "0" };
+  const initialState = config?.framerAnimation?.onclickAnimation?.initialState;
+  const finalState = config?.framerAnimation?.onclickAnimation?.finalState;
   const animator = useAnimationControls();
   const [isBoxOpened, setIsBoxOpened] = useState(false);
 
+  const getInitialState = () => {
+    if (window.screen.width < 767.98) {
+      let newState = initialState;
+      newState.width = "47%";
+      return newState;
+    }
+    return initialState;
+  };
+
+  const getFinalState = () => {
+    if (window.screen.width < 767.98) {
+      let newState = finalState;
+      newState.width = "100%";
+      return newState;
+    }
+    return finalState;
+  };
+
   const openBox = () => {
     if (!isBoxOpened) {
-      animator.start(config?.framerAnimation?.onclickAnimation?.finalState);
+      animator.start(getFinalState());
       setIsBoxOpened(true);
     }
   };
 
   const closeBox = () => {
     if (isBoxOpened) {
-      animator.start(config?.framerAnimation?.onclickAnimation?.initialState);
+      animator.start(getInitialState());
       setIsBoxOpened(false);
     }
   };
@@ -62,10 +82,10 @@ function Box(props) {
         padding: img !== undefined ? "0px" : "20px",
         margin: "5px",
         overflowY: "auto",
-        width: config?.framerAnimation?.onclickAnimation?.initialState?.width,
-        height: config?.framerAnimation?.onclickAnimation?.initialState?.height,
+        width: getInitialState()?.width,
+        height: getInitialState()?.height,
       }}
-      initial={config?.framerAnimation?.onclickAnimation?.initialState}
+      initial={getInitialState()}
       animate={animator}
       onClick={openBox}
       transition={{ type: "spring" }}
