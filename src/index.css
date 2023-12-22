@@ -182,8 +182,7 @@
 
 .page-content .content .note {
   text-align: justify;
-  width: 60%;
-  height: 50%;
+  width: 50%;
   margin-left: auto;
   margin-right: auto;
   overflow-y: auto;
@@ -218,6 +217,6 @@
   }
 
   .page-content .content .note {
-    width: 95%;
+    width: 90%;
   }
 }
