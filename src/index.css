@@ -60,6 +60,16 @@
   padding: 5px;
   margin-right: 7px;
   width: 120px;
+  font-size: small;
+  cursor: pointer;
+}
+
+.custom-input {
+  border: 1px dotted;
+  border-radius: 20px;
+  padding: 5px;
+  font-size: small;
+  margin: 5px;
 }
 
 .node {
@@ -171,7 +181,9 @@
 .page-content .content {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   text-align: center;
+  width: 100%;
 }
 
 .page-content .content span {
@@ -213,7 +225,11 @@
   }
 
   .page-content {
-    height: 90%;
+    height: 70vh;
+  }
+
+  .custom-input {
+    width: 90%;
   }
 
   .page-content .content .note {

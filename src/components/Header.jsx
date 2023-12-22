@@ -9,6 +9,9 @@ function Header() {
       case "about":
         navigator("/about");
         break;
+      case "console":
+        navigator("/login");
+        break;
 
       default:
         break;
@@ -26,7 +29,7 @@ function Header() {
           About
         </button>
 
-        <button className="custom-button" onClick={() => navigator("/about")}>
+        <button className="custom-button" onClick={() => navigator("/login")}>
           Console
         </button>
       </div>
