@@ -14,7 +14,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  color: rgb(185, 185, 185);
+  color: rgb(206, 206, 206);
+  font-weight: lighter;
 }
 
 #options {
@@ -61,7 +62,13 @@
   margin-right: 7px;
   width: 120px;
   font-size: small;
+  font-weight: normal;
   cursor: pointer;
+}
+
+.custom-button:hover {
+  color: white;
+  background-color: black;
 }
 
 .custom-input {
@@ -200,6 +207,37 @@
   overflow-y: auto;
 }
 
+.options-collection {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.big-title {
+  font-weight: lighter;
+  font-size: 50px;
+  margin-bottom: 50px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+form input {
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 7px;
+  border-bottom: 1px solid;
+  width: 300px;
+}
+
+form .options-collection {
+  margin-top: 35px;
+}
+
 @media (max-width: 767.98px) {
   #profile {
     display: block;
@@ -234,5 +272,9 @@
 
   .page-content .content .note {
     width: 90%;
+  }
+
+  .big-title {
+    font-size: 20px;
   }
 }

@@ -9,8 +9,8 @@ function Header() {
       case "about":
         navigator("/about");
         break;
-      case "console":
-        navigator("/login");
+      case "doc":
+        navigator("/documentation");
         break;
 
       default:
@@ -25,19 +25,24 @@ function Header() {
       </div>
 
       <div id="options">
-        <button className="custom-button" onClick={() => navigator("/about")}>
-          About
-        </button>
+        <div className="options-collection">
+          <button className="custom-button" onClick={() => navigator("/about")}>
+            About
+          </button>
 
-        <button className="custom-button" onClick={() => navigator("/login")}>
-          Console
-        </button>
+          <button
+            className="custom-button"
+            onClick={() => navigator("/documentation")}
+          >
+            Documentation
+          </button>
+        </div>
       </div>
 
       <select id="mobile-options" className="custom-button" onChange={select}>
         <option>Menu</option>
         <option value={"about"}>About</option>
-        <option value={"console"}>Console</option>
+        <option value={"doc"}>Documentation</option>
       </select>
     </div>
   );

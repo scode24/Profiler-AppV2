@@ -1,23 +1,28 @@
+import { motion } from "framer-motion";
 import React from "react";
 
 function AboutPage() {
   return (
     <div className="page-content">
-      <div className="content">
-        <span>About This Project</span>
+      <motion.div
+        className="content"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+      >
+        <span style={{ fontWeight: "lighter" }}>About This Project</span>
         <div className="note">
           <p>
-            Introducing Profile AppV2, an innovative application that allows
-            users to seamlessly submit their relevant profile information,
-            including skills and projects. The app features interactive tiles in
-            a sleek title format. Clicking on a tile triggers a smooth
-            animation, expanding to reveal more details. Users have the
-            flexibility to open and close tiles at will, ensuring a customizable
-            and user-friendly experience. The mobile-friendly UI enhances
-            accessibility, while advanced users can personalize tile styles and
-            animations through JSON config values, even incorporating HTML
-            formatting in the data. Elevate your profile with Profile AppV2 –
-            where customization meets simplicity.
+            Introducing {process.env.REACT_APP_NAME}, an innovative application
+            that allows users to seamlessly submit their relevant profile
+            information, including skills and projects. The app features
+            interactive tiles in a sleek title format. Clicking on a tile
+            triggers a smooth animation, expanding to reveal more details. Users
+            have the flexibility to open and close tiles at will, ensuring a
+            customizable and user-friendly experience. The mobile-friendly UI
+            enhances accessibility, while advanced users can personalize tile
+            styles and animations through JSON config values, even incorporating
+            HTML formatting in the data. Elevate your profile with{" "}
+            {process.env.REACT_APP_NAME}– where customization meets simplicity.
           </p>
 
           <br></br>
@@ -37,7 +42,7 @@ function AboutPage() {
             </a>
           </p>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }

@@ -3,9 +3,7 @@ import "./App.css";
 import Header from "./components/Header";
 import Profile from "./components/Profile";
 import AboutPage from "./pages/AboutPage";
-import LoginPage from "./pages/LoginPage";
-import RegisterPage from "./pages/RegisterPage";
-import ResetPasswordPage from "./pages/ResetPasswordPage";
+import DocumentationPage from "./pages/DocumentationPage";
 
 function App() {
   return (
@@ -15,9 +13,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Profile />} />
           <Route path="/about" element={<AboutPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/resetPassword" element={<ResetPasswordPage />} />
+          <Route path="/documentation" element={<DocumentationPage />} />
         </Routes>
       </BrowserRouter>
     </div>
