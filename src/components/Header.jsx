@@ -1,21 +1,31 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import userLoginStore from "../data-store/UserLoginStore";
 
 function Header() {
   const navigator = useNavigate();
+  const { loggedInUser, setLoggedInUser } = userLoginStore();
 
   const select = (e) => {
     switch (e.target.value) {
       case "about":
         navigator("/about");
         break;
-      case "doc":
+      case "create":
         navigator("/createProfile");
+        break;
+      case "logout":
+        logoutUser();
         break;
 
       default:
         break;
     }
+  };
+
+  const logoutUser = () => {
+    setLoggedInUser([]);
+    navigator("/createProfile");
   };
 
   return (
@@ -26,23 +36,47 @@ function Header() {
 
       <div id="options">
         <div className="options-collection">
-          <button className="custom-button" onClick={() => navigator("/about")}>
-            About
-          </button>
-
-          <button
-            className="custom-button"
-            onClick={() => navigator("/createProfile")}
-          >
-            Create
-          </button>
+          {loggedInUser.length === 0 ? (
+            <>
+              <button
+                className="custom-button"
+                onClick={() => navigator("/about")}
+              >
+                About
+              </button>
+              <button
+                className="custom-button"
+                onClick={() => navigator("/createProfile")}
+              >
+                Create
+              </button>
+            </>
+          ) : (
+            <>
+              <button className="custom-button" style={{ width: "150px" }}>
+                Change Password
+              </button>
+              <button className="custom-button" onClick={() => logoutUser()}>
+                Logout
+              </button>
+            </>
+          )}
         </div>
       </div>
 
       <select id="mobile-options" className="custom-button" onChange={select}>
         <option>Menu</option>
-        <option value={"about"}>About</option>
-        <option value={"doc"}>Create</option>
+        {loggedInUser.length === 0 ? (
+          <>
+            <option value={"about"}>About</option>
+            <option value={"create"}>Create</option>
+          </>
+        ) : (
+          <>
+            <option value={"changePwd"}>Change Password</option>
+            <option value={"logout"}>Logout</option>
+          </>
+        )}
       </select>
     </div>
   );

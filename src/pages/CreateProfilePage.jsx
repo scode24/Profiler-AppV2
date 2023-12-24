@@ -3,10 +3,12 @@ import React, { useState } from "react";
 import bcrypt from "bcryptjs";
 import { useNavigate } from "react-router";
 import axios from "axios";
+import userLoginStore from "../data-store/UserLoginStore";
 
 function CreateProfilePage() {
   const baseUrl = process.env.REACT_APP_SERVER_BASE_URL;
   const navigator = useNavigate();
+  const { setLoggedInUser } = userLoginStore();
   const [currentTab, setCurrentTab] = useState("login");
   const [formData, setFormData] = useState({
     name: "",
@@ -40,11 +42,11 @@ function CreateProfilePage() {
       password: hashPassword(formData.loginPassword),
     });
 
-    console.log(response.data);
-
-    if (response.data.length === 0) {
+    if (response.data.userInfo.length === 0) {
       alert("Invalid credential");
     } else {
+      localStorage.setItem("access_token", response.data.token);
+      setLoggedInUser(response.data.userInfo);
       navigator("/profileData");
     }
   };
