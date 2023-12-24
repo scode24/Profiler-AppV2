@@ -3,7 +3,8 @@ import "./App.css";
 import Header from "./components/Header";
 import Profile from "./components/Profile";
 import AboutPage from "./pages/AboutPage";
-import DocumentationPage from "./pages/DocumentationPage";
+import CreateProfilePage from "./pages/CreateProfilePage";
+import ProfileDataPage from "./pages/ProfileDataPage";
 
 function App() {
   return (
@@ -13,7 +14,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Profile />} />
           <Route path="/about" element={<AboutPage />} />
-          <Route path="/documentation" element={<DocumentationPage />} />
+          <Route path="/createProfile" element={<CreateProfilePage />} />
+          <Route path="/profileData" element={<ProfileDataPage />} />
         </Routes>
       </BrowserRouter>
     </div>

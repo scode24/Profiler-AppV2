@@ -10,7 +10,7 @@ function Header() {
         navigator("/about");
         break;
       case "doc":
-        navigator("/documentation");
+        navigator("/createProfile");
         break;
 
       default:
@@ -32,9 +32,9 @@ function Header() {
 
           <button
             className="custom-button"
-            onClick={() => navigator("/documentation")}
+            onClick={() => navigator("/createProfile")}
           >
-            Documentation
+            Create
           </button>
         </div>
       </div>
@@ -42,7 +42,7 @@ function Header() {
       <select id="mobile-options" className="custom-button" onChange={select}>
         <option>Menu</option>
         <option value={"about"}>About</option>
-        <option value={"doc"}>Documentation</option>
+        <option value={"doc"}>Create</option>
       </select>
     </div>
   );
