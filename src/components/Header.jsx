@@ -1,8 +1,11 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import userLoginStore from "../data-store/UserLoginStore";
+import axios from "axios";
+import bcrypt from "bcryptjs";
 
 function Header() {
+  const baseUrl = process.env.REACT_APP_SERVER_BASE_URL;
   const navigator = useNavigate();
   const { loggedInUser, setLoggedInUser } = userLoginStore();
 
@@ -25,7 +28,44 @@ function Header() {
 
   const logoutUser = () => {
     setLoggedInUser([]);
+    localStorage.removeItem("access_token");
     navigator("/createProfile");
+  };
+
+  const hashPassword = (password) => {
+    // const salt = bcrypt.genSaltSync(10)
+    // example =>  $2a$10$CwTycUXWue0Thq9StjUM0u => to be added always to the password hash
+    return bcrypt.hashSync(password, "$2a$10$CwTycUXWue0Thq9StjUM0u");
+  };
+
+  const changePassword = async () => {
+    let newPassword = prompt("Enter new password");
+    let confirmPassword = null;
+    if (newPassword !== null) {
+      confirmPassword = prompt("Confirm password");
+    }
+
+    if (newPassword === null || confirmPassword === null) {
+      return;
+    }
+
+    if (newPassword !== confirmPassword) {
+      alert("Please confirm your new password");
+    }
+
+    const response = await axios.post(
+      baseUrl + "/changePassword",
+      {
+        password: hashPassword(newPassword),
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+        },
+      }
+    );
+
+    alert(response.data);
   };
 
   return (
@@ -53,7 +93,11 @@ function Header() {
             </>
           ) : (
             <>
-              <button className="custom-button" style={{ width: "150px" }}>
+              <button
+                className="custom-button"
+                style={{ width: "150px" }}
+                onClick={() => changePassword()}
+              >
                 Change Password
               </button>
               <button className="custom-button" onClick={() => logoutUser()}>

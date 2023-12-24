@@ -156,12 +156,6 @@ function CreateProfilePage() {
                 <button className="custom-button" type="submit">
                   Register
                 </button>
-                <button
-                  className="custom-button"
-                  onClick={() => setCurrentTab("login")}
-                >
-                  Login
-                </button>
               </div>
             </form>
           )}

@@ -1,9 +1,8 @@
-import { motion } from "framer-motion";
 import React, { useState } from "react";
 
 function ProfileDataPage() {
   const [fileContent, setFileContent] = useState("");
-  const [selectedFile, setSelectedFile] = useState(null);
+  const [setSelectedFile] = useState(null);
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];

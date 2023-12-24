@@ -97,7 +97,6 @@ const auth = (req, res, next) => {
     if (err) {
       return res.status(401).send("Not valid user");
     }
-    req.name = decoded["name"];
     req.email = decoded["email"];
   });
 
@@ -113,9 +112,9 @@ app.post("/login", async (req, res) => {
       if (userInfo.length > 0) {
         token = jwt.sign(
           {
-            userId: userInfo[0]["_id"],
+            id: userInfo[0]["_id"],
             name: userInfo[0]["name"],
-            email: userInfo["email"],
+            email: userInfo[0]["email"],
           },
           process.env.ACCESS_TOKEN
         );
@@ -145,4 +144,22 @@ app.post("/register", async (req, res) => {
 app.post("/resetPassword", async (req, res) => {
   const response = await sendPassword(req.body.email);
   res.send(response);
+});
+
+app.post("/changePassword", auth, async (req, res) => {
+  await userModel
+    .updateOne(
+      {
+        email: req.email,
+      },
+      {
+        password: req.body.password,
+      }
+    )
+    .then(async (data) => {
+      if (data.modifiedCount > 0) {
+        res.send("Password has been changed successfully");
+      }
+    })
+    .catch((error) => console.error(error));
 });

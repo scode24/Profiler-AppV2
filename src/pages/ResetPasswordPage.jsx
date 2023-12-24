@@ -1,9 +1,11 @@
 import axios from "axios";
 import { motion } from "framer-motion";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function ResetPasswordPage() {
   const baseUrl = process.env.REACT_APP_SERVER_BASE_URL;
+  const navigator = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
   });
@@ -41,6 +43,13 @@ function ResetPasswordPage() {
           <div className="options-collection">
             <button className="custom-button" type="submit">
               Reset Password
+            </button>
+
+            <button
+              className="custom-button"
+              onClick={() => navigator("/createProfile")}
+            >
+              Back to Login
             </button>
           </div>
         </form>
