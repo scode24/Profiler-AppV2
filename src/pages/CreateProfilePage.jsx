@@ -62,7 +62,6 @@ function CreateProfilePage() {
       email: formData.email,
       password: hashPassword(formData.registerPassword),
     });
-
     alert(response.data);
   };
 
@@ -114,7 +113,12 @@ function CreateProfilePage() {
                 <button className="custom-button" type="submit">
                   Login
                 </button>
-                <button className="custom-button">Reset Password</button>
+                <button
+                  className="custom-button"
+                  onClick={() => navigator("/resetPassword")}
+                >
+                  Reset Password
+                </button>
               </div>
             </form>
           ) : (

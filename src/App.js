@@ -5,6 +5,7 @@ import Profile from "./components/Profile";
 import AboutPage from "./pages/AboutPage";
 import CreateProfilePage from "./pages/CreateProfilePage";
 import ProfileDataPage from "./pages/ProfileDataPage";
+import ResetPasswordPage from "./pages/ResetPasswordPage";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/createProfile" element={<CreateProfilePage />} />
           <Route path="/profileData" element={<ProfileDataPage />} />
+          <Route path="/resetPassword" element={<ResetPasswordPage />} />
         </Routes>
       </BrowserRouter>
     </div>

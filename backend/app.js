@@ -43,7 +43,7 @@ const sendPassword = async (email) => {
           password: hashPassword(password + ""),
         }
       )
-      .then((data) => {
+      .then(async (data) => {
         if (data.modifiedCount > 0) {
           const transporter = nodemailer.createTransport({
             service: "gmail",
@@ -65,7 +65,7 @@ const sendPassword = async (email) => {
           };
 
           // Send the email
-          transporter.sendMail(mailOptions);
+          await transporter.sendMail(mailOptions);
           msg = "New password has been sent to your mail id";
         } else {
           msg = "Invalid email";
