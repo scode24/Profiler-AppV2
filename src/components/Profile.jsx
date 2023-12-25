@@ -12,15 +12,24 @@ import {
 import profileStore from "../data-store/ProfileStore";
 import axios from "axios";
 import { faCode } from "@fortawesome/free-solid-svg-icons";
+import { useLocation } from "react-router-dom";
 
 function Profile() {
+  const baseUrl = process.env.REACT_APP_SERVER_BASE_URL;
   const { profileJson, setProfileJson } = profileStore();
+  const { search } = useLocation();
+  const params = new URLSearchParams(search);
+  const email = params.get("email");
 
   useEffect(() => {
     axios
-      .get("data.json")
+      .get(baseUrl + "/findProfileData?email=" + email)
       .then((response) => {
-        setProfileJson(response.data);
+        if (response.data.length > 0) {
+          setProfileJson(response.data[0].profile);
+        } else {
+          alert("No profile found. Please verify provided email in the url.");
+        }
       })
       .catch((error) => console.log(error.message));
   }, []);
@@ -30,7 +39,7 @@ function Profile() {
       <div id="main-wrap-div">
         <Box
           config={{
-            img: "mypic.jpeg",
+            img: profileJson?.boxes?.imgspace?.base64Img,
             config: profileJson?.boxes?.imgspace?.config,
           }}
         />

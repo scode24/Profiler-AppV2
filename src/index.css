@@ -251,6 +251,12 @@ form .options-collection {
   width: 100%;
   height: 90vh;
   font-family: "Courier New", Courier, monospace;
+  color: rgb(0, 213, 0);
+  background-color: black;
+}
+
+label {
+  padding: 7px !important;
 }
 
 @media (max-width: 767.98px) {

@@ -6,13 +6,15 @@ import cors from "cors";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 import nodemailer from "nodemailer";
+import profileModel from "./models/ProfileModel.js";
 
 const app = express();
 dotenv.config();
 
 const port = process.env.PORT;
 
-app.use(express.json());
+app.use(express.json({ limit: "25mb" }));
+app.use(express.urlencoded({ limit: "25mb" }));
 app.use(cors());
 
 app.listen(port, () => {
@@ -22,7 +24,8 @@ app.listen(port, () => {
     .then(() => console.log("Database is connected"))
     .catch((error) => console.error(error));
 });
-//---------------------------------------//
+
+//** Apis methods */
 
 const hashPassword = (password) => {
   // const salt = bcrypt.genSaltSync(10)
@@ -97,6 +100,8 @@ const auth = (req, res, next) => {
     if (err) {
       return res.status(401).send("Not valid user");
     }
+    req.id = decoded["id"];
+    req.name = decoded["name"];
     req.email = decoded["email"];
   });
 
@@ -161,5 +166,28 @@ app.post("/changePassword", auth, async (req, res) => {
         res.send("Password has been changed successfully");
       }
     })
+    .catch((error) => console.error(error));
+});
+
+app.post("/uploadData", auth, async (req, res) => {
+  await profileModel
+    .deleteOne({
+      email: req.email,
+    })
+    .then((data) => {
+      profileModel
+        .create({
+          email: req.email,
+          profile: req.body.profile,
+        })
+        .then((docs) => res.send("Data uploaded successfully"));
+    })
+    .catch((error) => console.error(error));
+});
+
+app.get("/findProfileData", async (req, res) => {
+  await profileModel
+    .find({ email: req.query.email })
+    .then((data) => res.send(data))
     .catch((error) => console.error(error));
 });

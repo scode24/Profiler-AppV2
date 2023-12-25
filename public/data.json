@@ -1,7 +1,7 @@
 {
   "boxes": {
     "imgspace": {
-      "url": "",
+      "base64Img": "<base64-img>",
       "config": {
         "style": {
           "fontColor": "white",
