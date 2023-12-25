@@ -191,3 +191,13 @@ app.get("/findProfileData", async (req, res) => {
     .then((data) => res.send(data))
     .catch((error) => console.error(error));
 });
+
+app.get("/validateAndFetchData", auth, async (req, res) => {
+  await profileModel
+    .find({ email: req.email })
+    .select("profile")
+    .then((data) =>
+      res.send({ name: req.name, email: req.email, profileJson: data })
+    )
+    .catch((error) => console.error(error));
+});

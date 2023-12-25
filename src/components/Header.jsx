@@ -1,13 +1,11 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import userLoginStore from "../data-store/UserLoginStore";
 import axios from "axios";
 import bcrypt from "bcryptjs";
 
 function Header() {
   const baseUrl = process.env.REACT_APP_SERVER_BASE_URL;
   const navigator = useNavigate();
-  const { loggedInUser, setLoggedInUser } = userLoginStore();
 
   const select = (e) => {
     switch (e.target.value) {
@@ -27,7 +25,6 @@ function Header() {
   };
 
   const logoutUser = () => {
-    setLoggedInUser([]);
     localStorage.removeItem("access_token");
     navigator("/createProfile");
   };
@@ -76,7 +73,7 @@ function Header() {
 
       <div id="options">
         <div className="options-collection">
-          {loggedInUser.length === 0 ? (
+          {localStorage.getItem("access_token") === null ? (
             <>
               <button
                 className="custom-button"
@@ -110,7 +107,7 @@ function Header() {
 
       <select id="mobile-options" className="custom-button" onChange={select}>
         <option>Menu</option>
-        {loggedInUser.length === 0 ? (
+        {localStorage.getItem("access_token") !== null ? (
           <>
             <option value={"about"}>About</option>
             <option value={"create"}>Create</option>

@@ -1,12 +1,33 @@
-import React, { useState } from "react";
-import userLoginStore from "../data-store/UserLoginStore";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 function ProfileDataPage() {
   const baseUrl = process.env.REACT_APP_SERVER_BASE_URL;
   const [fileContent, setFileContent] = useState("");
   const [isFileLoaded, setIsFileLoaded] = useState(false);
-  const { loggedInUser } = userLoginStore();
+  const [loggedInUser, setLoggedInUser] = useState();
+  const [email, setEmail] = useState();
+
+  const validateAndFetchData = async () => {
+    const response = await axios.get(baseUrl + "/validateAndFetchData", {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+      },
+    });
+
+    setLoggedInUser(response.data.name);
+    setEmail(response.data.email);
+    if (response.data.profileJson.length > 0) {
+      setFileContent(
+        JSON.stringify(response.data.profileJson[0].profile, undefined, 4)
+      );
+      setIsFileLoaded(true);
+    }
+  };
+
+  useEffect(() => {
+    validateAndFetchData();
+  }, []);
 
   const upload = async () => {
     const response = await axios.post(
@@ -45,7 +66,6 @@ function ProfileDataPage() {
 
     if (file) {
       //setSelectedFile(file);
-
       // Read the content of the file
       const reader = new FileReader();
       reader.onload = (e) => {
@@ -60,10 +80,25 @@ function ProfileDataPage() {
       setFileContent("");
     }
   };
+
   return (
     <div>
       <div id="sub-header">
-        <strong>{loggedInUser[0].name}</strong>
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <strong>{loggedInUser}</strong>
+          <a
+            href={"http://localhost:3000/profile?email=" + email}
+            style={{
+              fontSize: "small",
+              color: "white",
+              backgroundColor: "green",
+              padding: "7px",
+            }}
+            onClick={() => localStorage.removeItem("access_token")}
+          >
+            {"http://localhost:3000/profile?email=" + email}
+          </a>
+        </div>
 
         <div className="options-collections">
           <input

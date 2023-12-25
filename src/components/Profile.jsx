@@ -22,6 +22,7 @@ function Profile() {
   const email = params.get("email");
 
   useEffect(() => {
+    localStorage.removeItem("access_token");
     axios
       .get(baseUrl + "/findProfileData?email=" + email)
       .then((response) => {
