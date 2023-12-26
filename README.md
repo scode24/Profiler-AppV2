@@ -1,5 +1,16 @@
 # Profiler AppV2
 
+<div style="display: flex;  flex-direction: row">
+    <div style="display: flex; flex: 3; flex-direction: column">
+        <div style="flex: 1;">
+            <img src="./banner/1.png" alt="DSA-Tracker">
+        </div>
+        <div style="flex: 1;">
+            <img src="./banner/2.png" alt="DSA-Tracker">
+        </div>
+    </div>
+</div>
+
 Profiler AppV2 is a web application that allows users to create and manage their profiles with ease. The application utilizes modern web technologies, including Tailwind CSS, Framer Animation, JWT authentication, and other features to enhance user experience.
 
 ## Features
