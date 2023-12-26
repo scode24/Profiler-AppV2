@@ -130,7 +130,10 @@ app.post("/login", async (req, res) => {
       };
       res.send(response);
     })
-    .catch((error) => console.error(error));
+    .catch((error) => {
+      console.error(error);
+      res.status(500).send("Internal Server Error");
+    });
 });
 
 app.post("/register", async (req, res) => {
@@ -139,7 +142,10 @@ app.post("/register", async (req, res) => {
       userModel
         .create(req.body)
         .then((docs) => res.send("Registration done"))
-        .catch((error) => console.error(error));
+        .catch((error) => {
+          console.error(error);
+          res.status(500).send("Internal Server Error");
+        });
     } else {
       res.send("User exists");
     }
@@ -152,44 +158,56 @@ app.post("/resetPassword", async (req, res) => {
 });
 
 app.post("/changePassword", auth, async (req, res) => {
-  await userModel
-    .updateOne(
+  try {
+    const result = await userModel.updateOne(
       {
         email: req.email,
       },
       {
         password: req.body.password,
       }
-    )
-    .then(async (data) => {
-      if (data.modifiedCount > 0) {
-        res.send("Password has been changed successfully");
-      }
-    })
-    .catch((error) => console.error(error));
+    );
+
+    if (result.modifiedCount > 0) {
+      res.send("Password has been changed successfully");
+    } else {
+      res
+        .status(400)
+        .send(
+          "Failed to change password. User not found or password unchanged."
+        );
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Internal Server Error");
+  }
 });
 
 app.post("/uploadData", auth, async (req, res) => {
-  await profileModel
-    .deleteOne({
+  try {
+    await profileModel.deleteOne({ email: req.email });
+
+    const newProfileData = {
       email: req.email,
-    })
-    .then((data) => {
-      profileModel
-        .create({
-          email: req.email,
-          profile: req.body.profile,
-        })
-        .then((docs) => res.send("Data uploaded successfully"));
-    })
-    .catch((error) => console.error(error));
+      profile: req.body.profile,
+    };
+    await profileModel.create(newProfileData);
+
+    res.send("Data uploaded successfully");
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Internal Server Error");
+  }
 });
 
 app.get("/findProfileData", async (req, res) => {
   await profileModel
     .find({ email: req.query.email })
     .then((data) => res.send(data))
-    .catch((error) => console.error(error));
+    .catch((error) => {
+      console.error(error);
+      res.status(500).send("Internal Server Error");
+    });
 });
 
 app.get("/validateAndFetchData", auth, async (req, res) => {
@@ -199,5 +217,8 @@ app.get("/validateAndFetchData", auth, async (req, res) => {
     .then((data) =>
       res.send({ name: req.name, email: req.email, profileJson: data })
     )
-    .catch((error) => console.error(error));
+    .catch((error) => {
+      console.error(error);
+      res.status(500).send("Internal Server Error");
+    });
 });

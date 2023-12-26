@@ -260,6 +260,24 @@ form .options-collection {
   background-color: black;
 }
 
+#file-data-container-edit {
+  padding: 10px;
+  width: 100%;
+  height: 90vh;
+  font-family: "Courier New", Courier, monospace;
+  color: white;
+  background-color: black;
+}
+
+.badge {
+  font-size: smaller;
+  background-color: green;
+  color: white;
+  border-radius: 10px;
+  padding: 7px;
+  margin-right: 10px;
+}
+
 label {
   padding: 7px !important;
 }

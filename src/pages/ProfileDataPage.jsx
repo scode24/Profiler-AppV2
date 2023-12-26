@@ -5,6 +5,7 @@ function ProfileDataPage() {
   const baseUrl = process.env.REACT_APP_SERVER_BASE_URL;
   const [fileContent, setFileContent] = useState("");
   const [isFileLoaded, setIsFileLoaded] = useState(false);
+  const [isEditMode, setIsEditMode] = useState(false);
   const [loggedInUser, setLoggedInUser] = useState();
   const [email, setEmail] = useState();
 
@@ -61,6 +62,14 @@ function ProfileDataPage() {
     }
   };
 
+  const editOrSaveData = () => {
+    if (isEditMode) {
+      const data = document.getElementById("file-data-container-edit").value;
+      setFileContent(data);
+    }
+    setIsEditMode(!isEditMode);
+  };
+
   const handleFileChange = (event) => {
     const file = event.target.files[0];
 
@@ -87,13 +96,8 @@ function ProfileDataPage() {
         <div>
           <strong>{loggedInUser + " "}</strong>
           <a
+            className="badge"
             href={"http://localhost:3000/profile?email=" + email}
-            style={{
-              fontSize: "small",
-              color: "white",
-              backgroundColor: "green",
-              padding: "7px",
-            }}
             onClick={() => localStorage.removeItem("access_token")}
           >
             [Your profiler link]
@@ -101,39 +105,54 @@ function ProfileDataPage() {
         </div>
 
         <div className="options-collections">
-          <input
-            type="file"
-            id="json-uploader"
-            onChange={handleFileChange}
-            accept=".json"
-            style={{ display: "none" }}
-          />
-          <label className="custom-button" htmlFor="json-uploader">
-            Upload profile data
-          </label>
-
-          <input
-            type="file"
-            id="img-uploader"
-            onChange={handleImageChange}
-            accept=".jpeg, .jpg, .png"
-            style={{ display: "none" }}
-          />
+          {!isEditMode ? (
+            <>
+              <input
+                type="file"
+                id="json-uploader"
+                onChange={handleFileChange}
+                accept=".json"
+                style={{ display: "none" }}
+              />
+              <label className="custom-button" htmlFor="json-uploader">
+                Upload profile data
+              </label>
+            </>
+          ) : (
+            <></>
+          )}
 
           {isFileLoaded ? (
             <>
-              <label className="custom-button" htmlFor="img-uploader">
-                Upload profile photo
-              </label>
-              <button className="custom-button" style={{ width: "150px" }}>
-                Edit profile data
-              </button>
+              {!isEditMode ? (
+                <>
+                  <input
+                    type="file"
+                    id="img-uploader"
+                    onChange={handleImageChange}
+                    accept=".jpeg, .jpg, .png"
+                    style={{ display: "none" }}
+                  />
+                  <label className="custom-button" htmlFor="img-uploader">
+                    Upload profile photo
+                  </label>
+                  <button
+                    className="custom-button"
+                    style={{ width: "150px" }}
+                    onClick={() => upload()}
+                  >
+                    Upload to Server
+                  </button>
+                </>
+              ) : (
+                <></>
+              )}
               <button
                 className="custom-button"
                 style={{ width: "150px" }}
-                onClick={() => upload()}
+                onClick={() => editOrSaveData()}
               >
-                Upload to Server
+                {!isEditMode ? "Edit " : "Save "} profile data
               </button>
             </>
           ) : (
@@ -145,20 +164,30 @@ function ProfileDataPage() {
       <div>
         <div
           style={{
-            background: "blue",
-            color: "white",
+            border: "1px solid",
             fontSize: "small",
             padding: "7px",
           }}
         >
+          <span className="badge">
+            {isEditMode ? "Edit Mode" : "Ready Mode"}
+          </span>
           Make sure JSON format is corrent with all necessary fields, else
           profile UI will not be rendered properly
         </div>
-        <textarea
-          id="file-data-container"
-          value={fileContent}
-          placeholder="File content will be displayed here"
-        ></textarea>
+        {!isEditMode ? (
+          <textarea
+            id="file-data-container"
+            value={fileContent}
+            placeholder="File content will be displayed here"
+          ></textarea>
+        ) : (
+          <textarea
+            id="file-data-container-edit"
+            defaultValue={fileContent}
+            placeholder="File content will be displayed here"
+          ></textarea>
+        )}
       </div>
     </div>
   );
