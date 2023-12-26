@@ -5,7 +5,7 @@
       "config": {
         "style": {
           "fontColor": "white",
-          "bgColor": "#4834DF"
+          "bgColor": "indigo"
         },
         "framerAnimation": {
           "onclickAnimation": {
@@ -16,32 +16,20 @@
       }
     },
     "namespace": {
-      "fullName": "Soumyabrata Sarkar",
-      "subTitle": "Full Stack Developer",
+      "fullName": "<your name>",
+      "subTitle": "<your role>",
       "content": {
         "socialLinks": [
           {
-            "title": "GitHub",
-            "link": "https://github.com/scode24"
-          },
-          {
-            "title": "LinkedIn",
-            "link": "https://www.linkedin.com/in/soumyabrata-sarkar/"
-          },
-          {
-            "title": "Mail",
-            "link": "mailto:soumyabrata024@gmail.com"
+            "title": "<link title>",
+            "link": "<link>"
           }
-        ],
-        "contacts": {
-          "phno": "+91-9535592494",
-          "address": "Bangalore, India"
-        }
+        ]
       },
       "config": {
         "style": {
           "fontColor": "white",
-          "bgColor": "#4834DF"
+          "bgColor": "indigo"
         },
         "framerAnimation": {
           "onclickAnimation": {
@@ -52,12 +40,12 @@
       }
     },
     "about": {
-      "title": "About Me",
-      "content": "With a robust background spanning 9.5 years in software development, I have honed my expertise in Java backend development, specializing in microservices architecture and cloud technologies. Over the past 2+ years, I have expanded my skill set to encompass full-stack development, demonstrating proficiency in Angular, React, Java, and the MERN (MongoDB, Express.js, React, Node.js) stack. My keen interest extends to the realms of artificial intelligence and machine learning, reflecting a commitment to staying at the forefront of emerging technologies. This multifaceted experience positions me as a versatile and forward-thinking professional in the dynamic field of software development.",
+      "title": "<about box title>",
+      "content": "<description>",
       "config": {
         "style": {
           "fontColor": "white",
-          "bgColor": "#4834DF"
+          "bgColor": "indigo"
         },
         "framerAnimation": {
           "onclickAnimation": {
@@ -68,58 +56,18 @@
       }
     },
     "skills": {
-      "title": "Skills",
+      "title": "<skill box title>",
       "content": [
         {
-          "name": "Java / J2EE",
-          "rating": 4,
-          "note": ""
-        },
-        {
-          "name": "Spring Framework",
-          "rating": 4,
-          "note": ""
-        },
-        {
-          "name": "Microservices",
-          "rating": 4,
-          "note": ""
-        },
-        {
-          "name": "CI/CD",
-          "rating": 3,
-          "note": ""
-        },
-        {
-          "name": "AWS",
-          "rating": 3,
-          "note": ""
-        },
-        {
-          "name": "JS",
-          "rating": 4,
-          "note": ""
-        },
-        {
-          "name": "ReactJS",
-          "rating": 4,
-          "note": ""
-        },
-        {
-          "name": "Angular",
-          "rating": 4,
-          "note": ""
-        },
-        {
-          "name": "MERN Stack",
-          "rating": 4,
-          "note": ""
+          "name": "<skill name>",
+          "rating": "<skill rating in number>",
+          "note": "<additional-note>"
         }
       ],
       "config": {
         "style": {
           "fontColor": "white",
-          "bgColor": "#4834DF"
+          "bgColor": "indigo"
         },
         "framerAnimation": {
           "onclickAnimation": {
@@ -130,93 +78,23 @@
       }
     },
     "projects": {
-      "title": "Projects",
+      "title": "<project box title>",
       "content": [
         {
-          "type": "Personal project",
-          "name": "Profiler",
-          "description": "Profiler shows user's profile with all the relevant information in an interactive way. User can create profiles by calling some APIs defined. User can insert/update/delete information just by sending JSON data to particular API",
-          "technology": "J2EE, Spring-Boot, React JS, Postgres, Swagger API, Git, AWS EC2, S3, RDS",
-          "company": "",
-          "githubLink": "https://github.com/scode24/profiler-ui,https://github.com/scode24/profiler-service",
-          "liveLink": "",
-          "imgTag": "profiler"
-        },
-        {
-          "type": "Personal project",
-          "name": "Voyager",
-          "description": "Voyager is a location based quiz game which will test your knowledge of different geographic locations,landscape across our country. You will be staring from one point and you will be travelling from one state to another by identifying photo and name of your next destination. Your progress will be marked on OpenStreet map.",
-          "technology": "Angular 8, OpenStreet Map with Leaflet library, Pixels API",
-          "company": "",
-          "githubLink": "https://github.com/scode24/VoyagerApp",
-          "liveLink": "",
-          "imgTag": "voyager"
-        },
-        {
-          "type": "Personal project",
-          "name": "Where Is This Location",
-          "description": "Location based quiz app where you need to guess the location by seeing one image.",
-          "technology": "Angular 8, Node JS, ExpressJS, Pixels AP",
-          "company": "",
-          "githubLink": "https://github.com/scode24/WhereIsThisLocation/tree/master",
-          "liveLink": "",
-          "imgTag": "where-is-this-location"
-        },
-        {
-          "type": "Personal project",
-          "name": "Country Food Quiz",
-          "description": "This is a food quiz app has been built on React , Spring Boot REST and PostgreSQL. Backend is incorporated with with admin security feature and admin controller APIs for managing quiz question bank",
-          "technology": "J2EE, Spring-Boot, React JS, Postgres, Git, Heroku Service",
-          "company": "",
-          "githubLink": "https://github.com/scode24/country-food-quiz-ui, https://github.com/scode24/country-food-quiz-service",
-          "liveLink": "",
-          "imgTag": "country-food-quiz"
-        },
-        {
-          "type": "Corporate project",
-          "name": "Westlaw - Alert module",
-          "description": "Westlaw is an online legal research service and proprietary database for lawyers and legal professionals. It handles significant amount of court, keycite, legal information. This application has been built with Cobalt Framework which developed by in house developers and built on top of many technologies like Java-Spring framework, python, DotNet etc. Alert module is a sub-module of the entire module set for this application. Her user can create alert with specific criteries and when alert module find some data matches those criteria, delivers information in form of RSS, mail or downloadable format to user.",
-          "technology": "J2EE, Spring, Git, AzureDevOps, Veracode, SonarQube",
-          "company": "Thomson Reuters",
-          "githubLink": "",
-          "liveLink": "",
-          "imgTag": ""
-        },
-        {
-          "type": "Corporate project",
-          "name": "NextGen Workorder Management System",
-          "description": "SES Platform is a multi-utility, multi-client platform that significantly reduces cost and risk while improving deployment and meter operations. A fully integrated solution, it features one application with seven modules. Developed web based solution with microservices with live push notification support. Developed modular frontend using Angular 7. Deployed microservices with Docker container. Also worked for CI/CD implementations.",
-          "technology": "J2EE, Spring Boot, Angular 7, Microservice",
-          "company": "Capgemini",
-          "githubLink": "",
-          "liveLink": "",
-          "imgTag": ""
-        },
-        {
-          "type": "Corporate project",
-          "name": "Adaptation Acceleration Engine (AAE)",
-          "description": "Adaptation Acceleration Engine (AAE) is a Cisco technology support service to maximize their collaboration investments. The purpose of AASC is to capture data and upload to the central Hadoop environment for further assurance and analytic services. Developed RESTful services, integrated Python code for business logics",
-          "technology": "J2EE, Spring Boot, Python",
-          "company": "Infosys",
-          "githubLink": "",
-          "liveLink": "",
-          "imgTag": ""
-        },
-        {
-          "type": "Corporate project",
-          "name": "Business continuity management (BCM)",
-          "description": "Business continuity management (BCM) is designed to ensure continuity of critical services being provided to customers in situations of events causing significant impact to business continuity. The primary objective of this application is to lay down the Business Continuity Plan to ensure recovery of essential elements (Infrastructure, Services & Devices) under various scenarios, necessary to support the continuity and/or resumption of mission critical business processes for business process owners.",
-          "technology": "J2EE, Struts",
-          "company": "IBM",
-          "githubLink": "",
-          "liveLink": "",
-          "imgTag": ""
+          "type": "<project type>",
+          "name": "<project name>",
+          "description": "<project description>",
+          "technology": "<technology used with comma separated i.e Java/J2EE, git>",
+          "company": "<associated company name>",
+          "githubLink": "<project GitHub link>",
+          "liveLink": "<project live host link>",
+          "imgTag": "<project image tag>"
         }
       ],
       "config": {
         "style": {
           "fontColor": "white",
-          "bgColor": "#4834DF"
+          "bgColor": "indigo"
         },
         "framerAnimation": {
           "onclickAnimation": {
@@ -227,37 +105,19 @@
       }
     },
     "experiences": {
-      "title": "Working Experiences",
+      "title": "<experiences box titile>",
       "content": [
         {
-          "company": "Thomson Reuters",
-          "designation": "Senior Software Engineer",
-          "jobStartDate": "May-2021",
-          "jobEndDate": "Aug-2023"
-        },
-        {
-          "company": "Capgemini",
-          "designation": "Lead Developer/Scrum Master",
-          "jobStartDate": "Nov-2018",
-          "jobEndDate": "May-2021"
-        },
-        {
-          "company": "Infosys",
-          "designation": "Application Developer/ Module Lead",
-          "jobStartDate": "July-2017",
-          "jobEndDate": "Aug-2018"
-        },
-        {
-          "company": "IBM",
-          "designation": "Application Developer",
-          "jobStartDate": "Dec-2014",
-          "jobEndDate": "July-2017"
+          "company": "<organization name>",
+          "designation": "<position hold>",
+          "jobStartDate": "<job start in this origanization>",
+          "jobEndDate": "<present till in this organization>"
         }
       ],
       "config": {
         "style": {
           "fontColor": "white",
-          "bgColor": "#4834DF"
+          "bgColor": "indigo"
         },
         "framerAnimation": {
           "onclickAnimation": {
@@ -268,29 +128,17 @@
       }
     },
     "achievements": {
-      "title": "Achievements",
+      "title": "<achievements box title>",
       "content": [
         {
-          "title": "Manager's Choice Award for Restlessly Reinvent IBM and Ourselves",
-          "source": "IBM"
-        },
-        {
-          "title": "Manager's Choice Award for Put the Client First, Deep Skill Adder Award",
-          "source": "IBM"
-        },
-        {
-          "title": "Project Star",
-          "source": "Capgemini"
-        },
-        {
-          "title": "Surge Award",
-          "source": "Thomson Reuters"
+          "title": "<achievement titile>",
+          "source": "<source>"
         }
       ],
       "config": {
         "style": {
           "fontColor": "white",
-          "bgColor": "#4834DF"
+          "bgColor": "indigo"
         },
         "framerAnimation": {
           "onclickAnimation": {
@@ -301,19 +149,19 @@
       }
     },
     "qualification": {
-      "title": "Qualification",
+      "title": "<qualification box title>",
       "content": [
         {
-          "degree": "BTECH in Computer Science",
-          "yearOfPassing": "2013",
-          "institute": "Academy Of Technology, West Bengal University of Technology",
-          "cgpaDgpaPercentage": "8.74"
+          "degree": "<degree>",
+          "yearOfPassing": "<year of passing>",
+          "institute": "<institute>",
+          "cgpaDgpaPercentage": "<cgpa/percentage>"
         }
       ],
       "config": {
         "style": {
           "fontColor": "white",
-          "bgColor": "#4834DF"
+          "bgColor": "indigo"
         },
         "framerAnimation": {
           "onclickAnimation": {

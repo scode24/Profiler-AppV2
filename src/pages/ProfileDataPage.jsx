@@ -7,7 +7,47 @@ function ProfileDataPage() {
   const [isFileLoaded, setIsFileLoaded] = useState(false);
   const [isEditMode, setIsEditMode] = useState(false);
   const [loggedInUser, setLoggedInUser] = useState();
-  const [email, setEmail] = useState();
+  const [email, setEmail] = useState("");
+  const placeholders = [
+    "<base64-img>",
+    "<your name>",
+    "<your role>",
+    "<link title>",
+    "<link>",
+    "<about box title>",
+    "<description>",
+    "<skill box title>",
+    "<skill name>",
+    "<skill rating in number>",
+    "<additional-note>",
+    "<project box title>",
+    "<project type>",
+    "<project name>",
+    "<project description>",
+    "<technology used with comma separated i.e Java/J2EE, git>",
+    "<associated company name>",
+    "<project GitHub link>",
+    "<project live host link>",
+    "<project image tag>",
+    "<experiences box titile>",
+    "<organization name>",
+    "<position hold>",
+    "<job start in this origanization>",
+    "<present till in this organization>",
+    "<achievements box title>",
+    "<achievement titile>",
+    "<source>",
+    "<qualification box title>",
+    "<degree>",
+    "<year of passing>",
+    "<institute>",
+    "<cgpa/percentage>",
+  ];
+
+  useEffect(() => {
+    validateAndFetchData();
+    loadDefaultTemplate();
+  }, []);
 
   const validateAndFetchData = async () => {
     const response = await axios.get(baseUrl + "/validateAndFetchData", {
@@ -26,11 +66,16 @@ function ProfileDataPage() {
     }
   };
 
-  useEffect(() => {
-    validateAndFetchData();
-  }, []);
-
   const upload = async () => {
+    for (const index in placeholders) {
+      if (fileContent.indexOf(placeholders[index]) > -1) {
+        alert(
+          placeholders[index] +
+            " is present. Please put a value for this placeholder."
+        );
+        return;
+      }
+    }
     try {
       const response = await axios.post(
         baseUrl + "/uploadData",
@@ -49,12 +94,21 @@ function ProfileDataPage() {
     }
   };
 
+  const loadDefaultTemplate = async () => {
+    try {
+      const response = await axios.get("data.json");
+      setFileContent(JSON.stringify(response.data, undefined, 4));
+      setIsFileLoaded(true);
+    } catch (error) {
+      alert(error);
+    }
+  };
+
   const handleImageChange = (event) => {
     const file = event.target.files[0];
 
     if (file) {
       const reader = new FileReader();
-
       reader.onloadend = () => {
         let updatedFileContent = JSON.parse(fileContent);
         updatedFileContent.boxes.imgspace.base64Img = reader.result;
@@ -226,6 +280,17 @@ function ProfileDataPage() {
             profile UI will not be rendered properly
           </span>
         </div>
+        {!isEditMode ? (
+          <div
+            className="note-bar"
+            style={{ color: "blue", cursor: "pointer" }}
+            onClick={() => loadDefaultTemplate()}
+          >
+            Click here to load default template
+          </div>
+        ) : (
+          <></>
+        )}
         {!isEditMode ? (
           <textarea
             id="file-data-container"
