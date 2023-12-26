@@ -31,19 +31,22 @@ function ProfileDataPage() {
   }, []);
 
   const upload = async () => {
-    const response = await axios.post(
-      baseUrl + "/uploadData",
-      {
-        profile: JSON.parse(fileContent),
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+    try {
+      const response = await axios.post(
+        baseUrl + "/uploadData",
+        {
+          profile: JSON.parse(fileContent),
         },
-      }
-    );
-
-    alert(response.data);
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+          },
+        }
+      );
+      alert(response.data);
+    } catch (error) {
+      alert(error.response.data);
+    }
   };
 
   const handleImageChange = (event) => {

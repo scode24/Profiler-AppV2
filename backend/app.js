@@ -90,10 +90,15 @@ const generatePassword = () => {
 
 const auth = (req, res, next) => {
   const authHeader = req.headers.authorization;
-  if (!authHeader || !authHeader.startsWith("Bearer ")) {
-    return res.status(401).send("Invalid or missing Authorization header");
+  if (
+    !authHeader ||
+    !authHeader.startsWith("Bearer ") ||
+    authHeader.startsWith("Bearer null")
+  ) {
+    return res
+      .status(401)
+      .send("Invalid or missing Authorization header. Try after re-login.");
   }
-
   const token = authHeader.split(" ")[1];
 
   jwt.verify(token, process.env.ACCESS_TOKEN, (err, decoded) => {
