@@ -1,4 +1,3 @@
-````markdown
 # Profiler AppV2
 
 Profiler AppV2 is a web application that allows users to create and manage their profiles with ease. The application utilizes modern web technologies, including Tailwind CSS, Framer Animation, JWT authentication, and other features to enhance user experience.
@@ -60,7 +59,4 @@ Profiler AppV2 is a web application that allows users to create and manage their
 
 Visit `http://localhost:3000` in your browser to access the Profiler AppV2.
 
-![Profiler AppV2 Banner](banner.png)
-
 Feel free to reach out for any questions or issues!
-````
