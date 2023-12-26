@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Box from "./Box";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -17,6 +17,7 @@ import { useLocation } from "react-router-dom";
 function Profile() {
   const baseUrl = process.env.REACT_APP_SERVER_BASE_URL;
   const { profileJson, setProfileJson } = profileStore();
+  const [isLoading, setIsLoading] = useState(true);
   const { search } = useLocation();
   const params = new URLSearchParams(search);
   const email = params.get("email");
@@ -31,12 +32,14 @@ function Profile() {
         } else {
           alert("No profile found. Please verify provided email in the url.");
         }
+        setIsLoading(false);
       })
       .catch((error) => console.log(error.message));
   }, []);
 
   return (
     <div id="profile">
+      {isLoading ? <span className="loader">Loading Profile...</span> : <></>}
       <div id="main-wrap-div">
         <Box
           config={{

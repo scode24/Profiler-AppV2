@@ -49,6 +49,11 @@
   overflow: auto;
 }
 
+.loader {
+  font-weight: lighter;
+  font-size: 24px;
+}
+
 .box-content {
   display: contents !important;
   font-size: 12px;
@@ -301,5 +306,10 @@ label {
 
   .big-title {
     font-size: 20px;
+  }
+
+  .loader {
+    padding: 20px;
+    font-size: 15px;
   }
 }

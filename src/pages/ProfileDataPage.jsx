@@ -84,8 +84,8 @@ function ProfileDataPage() {
   return (
     <div>
       <div id="sub-header">
-        <div style={{ display: "flex", flexDirection: "column" }}>
-          <strong>{loggedInUser}</strong>
+        <div>
+          <strong>{loggedInUser + " "}</strong>
           <a
             href={"http://localhost:3000/profile?email=" + email}
             style={{
@@ -96,7 +96,7 @@ function ProfileDataPage() {
             }}
             onClick={() => localStorage.removeItem("access_token")}
           >
-            {"http://localhost:3000/profile?email=" + email}
+            [Your profiler link]
           </a>
         </div>
 
@@ -125,6 +125,9 @@ function ProfileDataPage() {
               <label className="custom-button" htmlFor="img-uploader">
                 Upload profile photo
               </label>
+              <button className="custom-button" style={{ width: "150px" }}>
+                Edit profile data
+              </button>
               <button
                 className="custom-button"
                 style={{ width: "150px" }}
@@ -153,7 +156,7 @@ function ProfileDataPage() {
         </div>
         <textarea
           id="file-data-container"
-          defaultValue={fileContent}
+          value={fileContent}
           placeholder="File content will be displayed here"
         ></textarea>
       </div>
