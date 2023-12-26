@@ -15,6 +15,9 @@ function Header() {
       case "create":
         navigator("/createProfile");
         break;
+      case "changePwd":
+        changePassword();
+        break;
       case "logout":
         logoutUser();
         break;
@@ -22,6 +25,7 @@ function Header() {
       default:
         break;
     }
+    e.target.value = "Menu";
   };
 
   const logoutUser = () => {
@@ -71,7 +75,7 @@ function Header() {
         <div>{process.env.REACT_APP_NAME}</div>
       </div>
 
-      <div id="options">
+      <div className="options">
         <div className="options-collection">
           {localStorage.getItem("access_token") === null ? (
             <>
@@ -105,9 +109,13 @@ function Header() {
         </div>
       </div>
 
-      <select id="mobile-options" className="custom-button" onChange={select}>
-        <option>Menu</option>
-        {localStorage.getItem("access_token") !== null ? (
+      <select
+        className="mobile-options custom-button"
+        onChange={select}
+        defaultValue={"Menu"}
+      >
+        <option disabled>Menu</option>
+        {localStorage.getItem("access_token") === null ? (
           <>
             <option value={"about"}>About</option>
             <option value={"create"}>Create</option>

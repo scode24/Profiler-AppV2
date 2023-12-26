@@ -93,7 +93,7 @@ function ProfileDataPage() {
   return (
     <div>
       <div id="sub-header">
-        <div>
+        <div id="sub-header-title">
           <strong>{loggedInUser + " "}</strong>
           <a
             className="badge"
@@ -103,8 +103,65 @@ function ProfileDataPage() {
             [Your profiler link]
           </a>
         </div>
+        <div className="options">
+          <div className="options-collections">
+            {!isEditMode ? (
+              <>
+                <input
+                  type="file"
+                  id="json-uploader"
+                  onChange={handleFileChange}
+                  accept=".json"
+                  style={{ display: "none" }}
+                />
+                <label className="custom-button" htmlFor="json-uploader">
+                  Upload profile data
+                </label>
+              </>
+            ) : (
+              <></>
+            )}
 
-        <div className="options-collections">
+            {isFileLoaded ? (
+              <>
+                {!isEditMode ? (
+                  <>
+                    <input
+                      type="file"
+                      id="img-uploader"
+                      onChange={handleImageChange}
+                      accept=".jpeg, .jpg, .png"
+                      style={{ display: "none" }}
+                    />
+                    <label className="custom-button" htmlFor="img-uploader">
+                      Upload profile photo
+                    </label>
+                    <button
+                      className="custom-button"
+                      style={{ width: "150px" }}
+                      onClick={() => upload()}
+                    >
+                      Upload to Server
+                    </button>
+                  </>
+                ) : (
+                  <></>
+                )}
+                <button
+                  className="custom-button"
+                  style={{ width: "150px" }}
+                  onClick={() => editOrSaveData()}
+                >
+                  {!isEditMode ? "Edit " : "Save "} profile data
+                </button>
+              </>
+            ) : (
+              <></>
+            )}
+          </div>
+        </div>
+
+        <div className="mobile-options">
           {!isEditMode ? (
             <>
               <input
@@ -115,7 +172,7 @@ function ProfileDataPage() {
                 style={{ display: "none" }}
               />
               <label className="custom-button" htmlFor="json-uploader">
-                Upload profile data
+                Import
               </label>
             </>
           ) : (
@@ -134,14 +191,10 @@ function ProfileDataPage() {
                     style={{ display: "none" }}
                   />
                   <label className="custom-button" htmlFor="img-uploader">
-                    Upload profile photo
+                    Photo
                   </label>
-                  <button
-                    className="custom-button"
-                    style={{ width: "150px" }}
-                    onClick={() => upload()}
-                  >
-                    Upload to Server
+                  <button className="custom-button" onClick={() => upload()}>
+                    Upload
                   </button>
                 </>
               ) : (
@@ -149,10 +202,9 @@ function ProfileDataPage() {
               )}
               <button
                 className="custom-button"
-                style={{ width: "150px" }}
                 onClick={() => editOrSaveData()}
               >
-                {!isEditMode ? "Edit " : "Save "} profile data
+                {!isEditMode ? "Edit " : "Save "}
               </button>
             </>
           ) : (
@@ -162,18 +214,14 @@ function ProfileDataPage() {
       </div>
 
       <div>
-        <div
-          style={{
-            border: "1px solid",
-            fontSize: "small",
-            padding: "7px",
-          }}
-        >
+        <div className="note-bar">
           <span className="badge">
             {isEditMode ? "Edit Mode" : "Ready Mode"}
           </span>
-          Make sure JSON format is corrent with all necessary fields, else
-          profile UI will not be rendered properly
+          <span>
+            Make sure JSON format is corrent with all necessary fields, else
+            profile UI will not be rendered properly
+          </span>
         </div>
         {!isEditMode ? (
           <textarea
