@@ -1,7 +1,7 @@
 import React from "react";
 import profileStore from "../data-store/ProfileStore";
-import { Rating } from "react-simple-star-rating";
 import getIcon from "../shared/IconsFinder";
+import StarRatings from "react-star-ratings";
 
 function Skill() {
   const { profileJson } = profileStore();
@@ -32,7 +32,13 @@ function Skill() {
           >
             {getIcon(skill.name)}
             <span>{skill.name}</span>
-            <Rating size={10} initialValue={skill.rating} allowFraction />
+            <StarRatings
+              starDimension="10px"
+              starSpacing="2px"
+              starRatedColor="orange"
+              rating={skill.rating}
+              numberOfStars={5}
+            />
             <span>{skill.note}</span>
           </div>
         ))}
