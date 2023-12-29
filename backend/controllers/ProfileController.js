@@ -1,4 +1,5 @@
 import profileModel from "../models/ProfileModel.js";
+import { decrypt, encrypt } from "../utilities/CryptData.js";
 
 const uploadData = async (req, res) => {
   try {
@@ -6,7 +7,7 @@ const uploadData = async (req, res) => {
 
     const newProfileData = {
       email: req.email,
-      profile: req.body.profile,
+      profile: encrypt(JSON.stringify(req.body.profile)),
     };
     await profileModel.create(newProfileData);
 
@@ -20,7 +21,15 @@ const uploadData = async (req, res) => {
 const findProfileData = async (req, res) => {
   await profileModel
     .find({ email: req.query.email })
-    .then((data) => res.send(data))
+    .then((data) => {
+      const response = {
+        _id: data[0]._id,
+        email: data[0].email,
+        profile: decrypt(data[0].profile),
+      };
+      data[0] = response;
+      res.send(data);
+    })
     .catch((error) => {
       console.error(error);
       res.status(500).send("Internal Server Error");
@@ -32,7 +41,11 @@ const validateAndFetchData = async (req, res) => {
     .find({ email: req.email })
     .select("profile")
     .then((data) =>
-      res.send({ name: req.name, email: req.email, profileJson: data })
+      res.send({
+        name: req.name,
+        email: req.email,
+        profileJson: decrypt(data[0].profile),
+      })
     )
     .catch((error) => {
       console.error(error);

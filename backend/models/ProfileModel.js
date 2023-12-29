@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const profileSchema = new mongoose.Schema({
   email: String,
-  profile: Object,
+  profile: String,
 });
 
 const profileModel = new mongoose.model("profile-data", profileSchema);
