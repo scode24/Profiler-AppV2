@@ -37,7 +37,13 @@ function AboutPage() {
             * This project has been developed based on a personal passion and
             keen interest in the subject matter.
             <br></br>
-            <a style={{ color: "blue" }} href="#">
+            <a
+              style={{ color: "blue" }}
+              href={
+                REACT_APP_SERVER_BASE_URL +
+                "/profile?email=sarkar.soumyabrata2@gmail.com"
+              }
+            >
               Developer's profile
             </a>
           </p>
