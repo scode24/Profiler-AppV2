@@ -40,7 +40,7 @@ function AboutPage() {
             <a
               style={{ color: "blue" }}
               href={
-                REACT_APP_SERVER_BASE_URL +
+                process.env.REACT_APP_SERVER_BASE_URL +
                 "/profile?email=sarkar.soumyabrata2@gmail.com"
               }
             >
