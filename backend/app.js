@@ -14,7 +14,7 @@ app.use(express.json({ limit: "25mb" }));
 app.use(express.urlencoded({ limit: "25mb" }));
 app.use(
   cors({
-    origin: "localhost:80",
+    origin: "http://89.116.33.28:80",
   })
 );
 
@@ -25,4 +25,8 @@ connectDB().then(() => {
   app.listen(port, () => {
     console.log("Server started on port :: " + port);
   });
+});
+
+app.get("/test", (req, res) => {
+  res.send("API is working...");
 });
