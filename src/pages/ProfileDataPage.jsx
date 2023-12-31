@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import dataJsonSchema from "../shared/data-json-schema.js";
+import jsonschema from "jsonschema";
 
 function ProfileDataPage() {
   const baseUrl = process.env.REACT_APP_SERVER_BASE_URL;
@@ -8,6 +10,10 @@ function ProfileDataPage() {
   const [isEditMode, setIsEditMode] = useState(false);
   const [loggedInUser, setLoggedInUser] = useState();
   const [email, setEmail] = useState("");
+
+  const Validator = jsonschema.Validator;
+  const validator = new Validator();
+
   const placeholders = [
     "<base64-img>",
     "<your name>",
@@ -49,6 +55,13 @@ function ProfileDataPage() {
     loadDefaultTemplate();
   }, []);
 
+  const validateProfileData = (data) => {
+    console.log(dataJsonSchema);
+    const validationResult = validator.validate(data, dataJsonSchema);
+    console.log(validationResult.errors);
+    return validationResult.valid;
+  };
+
   const validateAndFetchData = async () => {
     const response = await axios.get(baseUrl + "/validateAndFetchData", {
       headers: {
@@ -67,6 +80,11 @@ function ProfileDataPage() {
   };
 
   const upload = async () => {
+    if (validateProfileData(JSON.parse(fileContent)) === false) {
+      // if (fileContent === "") {
+      alert("JSON profile data not in proper structure");
+      return;
+    }
     for (const index in placeholders) {
       if (fileContent.indexOf(placeholders[index]) > -1) {
         alert(
@@ -154,7 +172,9 @@ function ProfileDataPage() {
           <strong>{loggedInUser + " "}</strong>
           <a
             className="badge"
-            href={"http://localhost:3000/profile?email=" + email}
+            href={
+              process.env.REACT_APP_CLIENT_BASE_URL + "/profile?email=" + email
+            }
             onClick={() => localStorage.removeItem("access_token")}
           >
             [Your profiler link]
