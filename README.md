@@ -36,7 +36,7 @@ Profiler AppV2 is a web application that allows users to create and manage their
 - **In-browser JSON Editing:** Allows users to edit their profile information conveniently within the application.
 - **JsonSchema validator:** Validating profile json payload before sending to server to upload.
 - **Payload handler:** The application is optimized to handle big payloads efficiently during HTTP calls, ensuring a smooth user experience even with large amounts of data.
-- **Image Stoer:** Images are stored in base64 format, providing a convenient way to handle image data within the application.
+- **Image Store:** Images are stored in base64 format, providing a convenient way to handle image data within the application.
 - **Password Regenarate and Send in Mail:** On reset password, password can be reset and will receive newly generated password on mail
 - **Tailwind CSS:** A utility-first CSS framework for building modern web designs with minimal effort.
 - **Framer Animation:** Utilized for creating smooth and engaging animations within the application.
