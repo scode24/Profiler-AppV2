@@ -56,9 +56,7 @@ function ProfileDataPage() {
   }, []);
 
   const validateProfileData = (data) => {
-    console.log(dataJsonSchema);
     const validationResult = validator.validate(data, dataJsonSchema);
-    console.log(validationResult.errors);
     return validationResult.valid;
   };
 

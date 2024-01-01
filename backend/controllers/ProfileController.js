@@ -22,12 +22,14 @@ const findProfileData = async (req, res) => {
   await profileModel
     .find({ email: req.query.email })
     .then((data) => {
-      const response = {
-        _id: data[0]._id,
-        email: data[0].email,
-        profile: decrypt(data[0].profile),
-      };
-      data[0] = response;
+      if (data.length > 0) {
+        const response = {
+          _id: data[0]._id,
+          email: data[0].email,
+          profile: decrypt(data[0].profile),
+        };
+        data[0] = response;
+      }
       res.send(data);
     })
     .catch((error) => {

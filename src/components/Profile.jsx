@@ -24,18 +24,22 @@ function Profile() {
 
   useEffect(() => {
     localStorage.removeItem("access_token");
-    axios
-      .get(baseUrl + "/findProfileData?email=" + email)
-      .then((response) => {
-        if (response.data.length > 0) {
-          setProfileJson(response.data[0].profile);
-        } else {
-          alert("No profile found. Please verify provided email in the url.");
-        }
-        setIsLoading(false);
-      })
-      .catch((error) => console.log(error.message));
-  }, []);
+    if (Object.keys(profileJson).length === 0) {
+      axios
+        .get(baseUrl + "/findProfileData?email=" + email)
+        .then((response) => {
+          if (response.data.length > 0) {
+            setProfileJson(response.data[0].profile);
+          } else {
+            alert("No profile found. Please verify provided email in the url.");
+          }
+          setIsLoading(false);
+        })
+        .catch((error) => console.log(error.message));
+    } else {
+      setIsLoading(false);
+    }
+  });
 
   return (
     <div id="profile">

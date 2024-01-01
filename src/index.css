@@ -259,6 +259,13 @@
   margin-right: 10px;
 }
 
+.main-input {
+  background-color: rgb(238, 238, 238);
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: lighter;
+}
+
 .note-bar {
   display: flex;
   flex-direction: row;
@@ -271,6 +278,30 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.landing-page-namespace {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.landing-page-namespace img {
+  width: 70px;
+  height: 70px;
+  margin-right: 10px;
+}
+
+.landing-page-namespace .names {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.landing-page-namespace span {
+  font-weight: lighter !important;
+  font-size: small !important;
+  margin: 0 !important;
 }
 
 label {

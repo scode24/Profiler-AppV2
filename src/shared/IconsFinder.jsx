@@ -20,7 +20,6 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const getIcon = (skillname) => {
-  console.log("test");
   if (skillname.toLowerCase().indexOf("github") !== -1) {
     return (
       <FontAwesomeIcon

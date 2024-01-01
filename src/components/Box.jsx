@@ -1,5 +1,5 @@
 import { motion, useAnimationControls } from "framer-motion";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import About from "../box-contents/About";
 import NameSpace from "../box-contents/NameSpace";
 import Skills from "../box-contents/Skills";
