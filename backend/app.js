@@ -14,7 +14,7 @@ app.use(express.json({ limit: "25mb" }));
 app.use(express.urlencoded({ limit: "25mb" }));
 app.use(
   cors({
-    origin: process.env.CORS_ORIGIN,
+    origin: ["profilerapp.in", "www.profilerapp.in"],
   })
 );
 
