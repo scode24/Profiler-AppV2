@@ -26,7 +26,7 @@ function LandingPage() {
   }
 
   const handleInput = async (e) => {
-    if (checkValidEmail(e.target.value) == true) {
+    if (checkValidEmail(e.target.value) === true) {
       setInitialState({ opacity: 0, y: 30 });
       setFinalState({ opacity: 1, y: 0 });
       animator.start(finalState);
@@ -79,7 +79,7 @@ function LandingPage() {
               animate={animator}
             >
               {img !== "" ? (
-                <img src={img} />
+                <img src={img} alt="user pic" />
               ) : (
                 <div style={{ fontSize: "70px" }}>🥸</div>
               )}

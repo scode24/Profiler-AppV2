@@ -69,12 +69,8 @@ function ProfileDataPage() {
 
     setLoggedInUser(response.data.name);
     setEmail(response.data.email);
-    if (response.data.profileJson.length > 0) {
-      setFileContent(
-        JSON.stringify(response.data.profileJson[0].profile, undefined, 4)
-      );
-      setIsFileLoaded(true);
-    }
+    setFileContent(JSON.stringify(response.data.profileJson, undefined, 4));
+    setIsFileLoaded(true);
   };
 
   const upload = async () => {

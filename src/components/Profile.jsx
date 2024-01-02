@@ -39,7 +39,7 @@ function Profile() {
     } else {
       setIsLoading(false);
     }
-  });
+  }, [profileJson, baseUrl, email, setProfileJson]);
 
   return (
     <div id="profile">
