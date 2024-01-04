@@ -68,7 +68,7 @@ function LandingPage() {
         animate={{ opacity: 1, y: 0 }}
       >
         <div className="big-title" style={{ margin: "0" }}>
-          Get ready to dive into {process.env.REACT_APP_NAME}
+          Get Ready To Dive Into {process.env.REACT_APP_NAME}
         </div>
 
         <div className="note">
