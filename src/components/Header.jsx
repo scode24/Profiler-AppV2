@@ -71,7 +71,11 @@ function Header() {
 
   return (
     <div id="header">
-      <div id="title">
+      <div
+        id="title"
+        style={{ cursor: "pointer" }}
+        onClick={() => navigator("/")}
+      >
         <div>{process.env.REACT_APP_NAME}</div>
       </div>
 
