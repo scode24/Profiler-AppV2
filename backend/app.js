@@ -18,8 +18,8 @@ app.use(
   })
 );
 
-app.use(userRouter);
-app.use(profileRouter);
+app.use("/api", userRouter);
+app.use("/api", profileRouter);
 
 connectDB().then(() => {
   app.listen(port, () => {
